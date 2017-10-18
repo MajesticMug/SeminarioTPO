@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class MenuPrincipal {
-
+	//PRUEBA ARAM
 	private JFrame frame;
 
 	/**
