@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 
 public class MenuPrincipal {
 	//PRUEBA ARAM
+	//Prueba Gas
 	private JFrame frame;
 
 	/**
