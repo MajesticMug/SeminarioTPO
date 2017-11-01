@@ -1,9 +1,15 @@
 package test;
 
+import modelo.ConsentimientoTratamiento;
+import modelo.FichaOdontologica;
+import modelo.HistoriaClinica;
 import modelo.Odontologo;
 import modelo.Paciente;
+import modelo.PlanTratamiento;
+import modelo.Radiografia;
 import modelo.Radiologo;
 import modelo.Secretaria;
+import modelo.Turno;
 import modelo.Usuario;
 
 import org.hibernate.Session;
@@ -24,7 +30,13 @@ public class HibernateTest
 				.addAnnotatedClass(Paciente.class)
 				.addAnnotatedClass(Odontologo.class)
 				.addAnnotatedClass(Radiologo.class)
-				.addAnnotatedClass(Secretaria.class);
+				.addAnnotatedClass(Secretaria.class)
+				.addAnnotatedClass(FichaOdontologica.class)
+				.addAnnotatedClass(PlanTratamiento.class)
+				.addAnnotatedClass(ConsentimientoTratamiento.class)
+				.addAnnotatedClass(Radiografia.class)
+				.addAnnotatedClass(HistoriaClinica.class)
+				.addAnnotatedClass(Turno.class);
 		
 		SessionFactory sessionFactory = con.buildSessionFactory();
 		

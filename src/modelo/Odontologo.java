@@ -1,13 +1,25 @@
 package modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Odontologo extends Usuario
 {
 	private int nroMatricula;
+	
+	@OneToMany(mappedBy = "odontologo")
+	private List<PlanTratamiento> planesTratamiento = new ArrayList<PlanTratamiento>();	
+	
+	@OneToMany(mappedBy = "odontologo")
+	private List<ConsentimientoTratamiento> consentimientosTratamiento = new ArrayList<ConsentimientoTratamiento>();
+	
+	@OneToMany(mappedBy = "odontologo")
+	private List<Turno> turnos = new ArrayList<Turno>();
 	
 	public Odontologo() {
 		
@@ -32,4 +44,24 @@ public class Odontologo extends Usuario
 	{
 		this.nroMatricula = nroMatricula;
 	}
+	
+	public List<ConsentimientoTratamiento> getConsentimientosTratamiento()
+	{
+		return consentimientosTratamiento;
+	}
+
+	public List<PlanTratamiento> getPlanesTratamiento()
+	{
+		return planesTratamiento;
+	}
+
+	public List<Turno> getTurnos()
+	{
+		return turnos;
+	}
+
+	public void setTurnos(List<Turno> turnos)
+	{
+		this.turnos = turnos;
+	}	
 }
