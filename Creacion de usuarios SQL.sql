@@ -1,4 +1,8 @@
-use centro_odontologico
+if not exists (select * from sys.databases where name = 'centro_odontologico_hibernate')
+	create database centro_odontologico_hibernate;
+go
+
+use centro_odontologico_hibernate
 go
 
 if not exists(select * from sys.sql_logins where name = 'centro')

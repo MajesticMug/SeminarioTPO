@@ -3,13 +3,19 @@ package modelo;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-public class Usuario
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Usuario
 {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int usuarioId;	
 	private String nombre;
 	private String apellido;
@@ -29,7 +35,6 @@ public class Usuario
 			String tipoDocumento, int nroDocumento, String domicilio,
 			int telefono, char sexo, Date fechaNac, String funcion)
 	{
-		this.usuarioId = usuarioId;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.tipoDocumento = tipoDocumento;

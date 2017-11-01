@@ -1,2 +1,9 @@
+/controlador
+/hibernate.cfg.xml
+/lib
+/mapeos.xml
 /modelo
+/persistencia
 /test
+/utils
+/vista
