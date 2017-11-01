@@ -1,0 +1,3 @@
+Ejecutar la query 'Creacion BD y Usuario para Hibernate.sql' y simplemente ejecutar el proyecto desde eclipse.
+
+Hibernate se encarga de crear todas las tablas y las relaciones.
