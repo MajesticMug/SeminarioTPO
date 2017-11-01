@@ -2,6 +2,9 @@ package modelo;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Secretaria extends Usuario
 {
 	public Secretaria(String nombre, String apellido,

@@ -1,13 +1,14 @@
 package test;
 
+import modelo.Odontologo;
 import modelo.Paciente;
+import modelo.Radiologo;
+import modelo.Secretaria;
 import modelo.Usuario;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
 
 public class HibernateTest
 {
@@ -20,7 +21,10 @@ public class HibernateTest
 		
 		Configuration con = new Configuration().configure()
 				.addAnnotatedClass(Usuario.class)
-				.addAnnotatedClass(Paciente.class);
+				.addAnnotatedClass(Paciente.class)
+				.addAnnotatedClass(Odontologo.class)
+				.addAnnotatedClass(Radiologo.class)
+				.addAnnotatedClass(Secretaria.class);
 		
 		SessionFactory sessionFactory = con.buildSessionFactory();
 		

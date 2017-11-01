@@ -5,22 +5,22 @@ import java.sql.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class Radiologo extends Usuario
+public class Odontologo extends Usuario
 {
 	private int nroMatricula;
 	
-	public Radiologo() {
+	public Odontologo() {
 		
 	}
-
-	public Radiologo(int nroMatricula, String nombre, String apellido,
+	
+	public Odontologo(int nroMatricula, String nombre, String apellido,
 			String tipoDocumento, int nroDocumento, String domicilio,
 			int telefono, char sexo, Date fechaNac, String funcion)
 	{
 		super(nombre, apellido, tipoDocumento, nroDocumento, domicilio,
 				telefono, sexo, fechaNac, funcion);
 		
-		this.nroMatricula = nroMatricula;
+		this.setNroMatricula(nroMatricula);
 	}
 
 	public int getNroMatricula()
@@ -32,5 +32,4 @@ public class Radiologo extends Usuario
 	{
 		this.nroMatricula = nroMatricula;
 	}
-
 }
