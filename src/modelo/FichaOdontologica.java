@@ -1,12 +1,17 @@
 package modelo;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.criteria.CriteriaBuilder.In;
 
 @Entity
 public class FichaOdontologica
@@ -25,13 +30,17 @@ public class FichaOdontologica
 	@ManyToOne
 	private HistoriaClinica historiaClinica;
 	
+	@OneToOne
+	private PuntosMarcados puntosMarcados;
+	
 	public FichaOdontologica() {
 		
 	}
 
 	public FichaOdontologica(Date fechaCreacionFicha,
 			Date fechaModificacionFicha, Paciente paciente,
-			String observaciones, HistoriaClinica historiaClinica)
+			String observaciones, HistoriaClinica historiaClinica,
+			PuntosMarcados puntosMarcados)
 	{
 		super();
 		this.fechaCreacionFicha = fechaCreacionFicha;
@@ -39,6 +48,7 @@ public class FichaOdontologica
 		this.paciente = paciente;
 		this.observaciones = observaciones;
 		this.historiaClinica = historiaClinica;
+		this.puntosMarcados = puntosMarcados;
 	}
 
 	public Date getFechaCreacionFicha()
@@ -95,6 +105,15 @@ public class FichaOdontologica
 	{
 		this.historiaClinica = historiaClinica;
 	}
-	
-	
+
+	public PuntosMarcados getPuntosMarcados()
+	{
+		return puntosMarcados;
+	}
+
+	public void setPuntosMarcados(PuntosMarcados puntosMarcados)
+	{
+		this.puntosMarcados = puntosMarcados;
+	}
+
 }
