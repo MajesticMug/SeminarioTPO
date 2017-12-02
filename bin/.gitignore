@@ -2,3 +2,5 @@
 /utils
 /modelo
 /lib
+/persistencia
+/excepciones

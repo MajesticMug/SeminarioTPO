@@ -75,4 +75,17 @@ public class HibernateUtil {
 		
 		session.close();
   }
+  
+  // TODO: probar si esto funciona!
+  public static void actualizarEntidad(Object entidad) {
+	  	Session session = getSessionFactory().openSession();
+	  	
+		session.beginTransaction();
+	
+		session.update(entidad);
+		
+		session.getTransaction().commit();
+		
+		session.close();
+  }
 }

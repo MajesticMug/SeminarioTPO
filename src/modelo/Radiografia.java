@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -25,6 +26,9 @@ public class Radiografia
 	
 	@ManyToOne
 	private HistoriaClinica historiaClinica;
+	
+	@Lob
+	private byte[] imagen;
 	
 	public Radiografia() {
 		
@@ -87,5 +91,15 @@ public class Radiografia
 	public void setHistoriaClinica(HistoriaClinica historiaClinica)
 	{
 		this.historiaClinica = historiaClinica;
+	}
+
+	public byte[] getImagen()
+	{
+		return imagen;
+	}
+
+	public void setImagen(byte[] imagen)
+	{
+		this.imagen = imagen;
 	}
 }
