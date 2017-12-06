@@ -4,3 +4,7 @@
 /lib
 /persistencia
 /excepciones
+/controlador/
+/customControllers/
+/test/
+/resources/
