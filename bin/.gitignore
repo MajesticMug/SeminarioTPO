@@ -1,10 +1,1 @@
-/vista
-/utils
-/modelo
-/lib
-/persistencia
-/excepciones
-/controlador/
-/customControllers/
-/test/
-/resources/
+/vista/

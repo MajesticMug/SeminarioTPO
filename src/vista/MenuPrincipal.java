@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.EventQueue;
+import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -51,7 +52,7 @@ public class MenuPrincipal {
 		btnPacientes.setBounds(10, 36, 89, 23);
 		frmCentroOdontolgicoIntegral.getContentPane().add(btnPacientes);
 		
-		JButton btnEsecialistas = new JButton("Esecialistas");
+		JButton btnEsecialistas = new JButton("Especialistas");
 		btnEsecialistas.setBounds(109, 36, 89, 23);
 		frmCentroOdontolgicoIntegral.getContentPane().add(btnEsecialistas);
 		
@@ -79,6 +80,9 @@ public class MenuPrincipal {
 		panel.setBounds(308, 36, 116, 82);
 		frmCentroOdontolgicoIntegral.getContentPane().add(panel);
 		panel.setLayout(null);
+//		Graphics g;
+//		ImageIcon i = new ImageIcon(getClass().getResource(name))
+//		panel.add(comp).
 		
 		JMenuBar menuBar = new JMenuBar();
 		frmCentroOdontolgicoIntegral.setJMenuBar(menuBar);
