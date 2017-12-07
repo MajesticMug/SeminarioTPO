@@ -1,2 +1,12 @@
-/vista/
+/controlador/
+/customControllers/
+/excepciones/
+/hibernate.cfg.xml
+/lib/
+/mapeos.xml
+/modelo/
+/persistencia/
 /resources/
+/test/
+/utils/
+/vista/

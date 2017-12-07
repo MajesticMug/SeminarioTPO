@@ -19,6 +19,10 @@ public class PuntosMarcados
 	
 	@ElementCollection
 	private List<Integer> puntosY;
+	
+	public PuntosMarcados() {
+		
+	}
 
 	public PuntosMarcados(List<Integer> puntosX, List<Integer> puntosY)
 	{
