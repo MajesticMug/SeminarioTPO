@@ -2,12 +2,16 @@ package vista;
 
 import java.awt.EventQueue;
 import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.Panel;
+import javax.swing.JMenu;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class MenuPrincipal {
 	//PRUEBA ARAM
@@ -43,54 +47,95 @@ public class MenuPrincipal {
 	 */
 	private void initialize() {
 		frmCentroOdontolgicoIntegral = new JFrame();
+		frmCentroOdontolgicoIntegral.getContentPane().setBackground(Color.WHITE);
 		frmCentroOdontolgicoIntegral.setTitle("Centro Odontol\u00F3gico Integral");
-		frmCentroOdontolgicoIntegral.setBounds(100, 100, 450, 300);
+		frmCentroOdontolgicoIntegral.setBounds(100, 100, 495, 270);
 		frmCentroOdontolgicoIntegral.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCentroOdontolgicoIntegral.getContentPane().setLayout(null);
-		
-		JButton btnPacientes = new JButton("Pacientes");
-		btnPacientes.setBounds(10, 36, 89, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnPacientes);
-		
-		JButton btnEsecialistas = new JButton("Especialistas");
-		btnEsecialistas.setBounds(109, 36, 89, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnEsecialistas);
-		
-		JButton btnTurnos = new JButton("Turnos");
-		btnTurnos.setBounds(204, 36, 89, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnTurnos);
-		
-		JButton btnHistoriasClnicas = new JButton("Historias Cl\u00EDnicas");
-		btnHistoriasClnicas.setBounds(10, 147, 111, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnHistoriasClnicas);
-		
-		JButton btnRadiografas = new JButton("Radiograf\u00EDas");
-		btnRadiografas.setBounds(123, 147, 89, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnRadiografas);
-		
-		JButton btnBuscar = new JButton("Buscar");
-		btnBuscar.setBounds(215, 147, 89, 23);
-		frmCentroOdontolgicoIntegral.getContentPane().add(btnBuscar);
-		
+
 		JButton btnInformacin = new JButton("Informaci\u00F3n");
-		btnInformacin.setBounds(308, 147, 89, 23);
+		btnInformacin.setBounds(340, 198, 105, 23);
 		frmCentroOdontolgicoIntegral.getContentPane().add(btnInformacin);
-		
-		Panel panel = new Panel();
-		panel.setBounds(308, 36, 116, 82);
-		frmCentroOdontolgicoIntegral.getContentPane().add(panel);
-		panel.setLayout(null);
-//		Graphics g;
-//		ImageIcon i = new ImageIcon(getClass().getResource(name))
-//		panel.add(comp).
-		
-		JMenuBar menuBar = new JMenuBar();
-		frmCentroOdontolgicoIntegral.setJMenuBar(menuBar);
-		
-		JMenuItem mntmArchivo = new JMenuItem("Archivo");
-		menuBar.add(mntmArchivo);
-		
-		JMenuItem mntmAcercaDe = new JMenuItem("Acerca de");
-		menuBar.add(mntmAcercaDe);
+
+		//		LOGO Centro
+		JPanelConFondo panelLogo = new JPanelConFondo();
+		panelLogo.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/LogoCentro.jpg")));
+		panelLogo.setBounds(340, 28, 139, 110);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelLogo);
+		panelLogo.setLayout(null);
+
+		//		Imagen para boton Pacientes
+		JPanelConFondo panelPaciente = new JPanelConFondo();
+		panelPaciente.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/NuevoPaciente.jpg")));
+		panelPaciente.setBounds(10, 28, 99, 69);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelPaciente);
+		panelPaciente.setLayout(null);
+
+		JButton btnPacientes = new JButton("Pacientes");
+		btnPacientes.setBounds(0, 46, 99, 23);
+		panelPaciente.add(btnPacientes);
+
+		//		Imagen para boton Especialistas
+		JPanelConFondo panelEspecialistas = new JPanelConFondo();
+		panelEspecialistas.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/NuevoEspecialista.jpg")));
+		panelEspecialistas.setBounds(119, 28, 116, 69);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelEspecialistas);
+		panelEspecialistas.setLayout(null);
+
+		JButton btnEsecialistas = new JButton("Especialistas");
+		btnEsecialistas.setBounds(0, 46, 116, 23);
+		panelEspecialistas.add(btnEsecialistas);
+
+		//		Imagen para Boton Turnos
+		JPanelConFondo panelTurnos = new JPanelConFondo();
+		panelTurnos.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Turnos.jpg")));
+		panelTurnos.setBounds(241, 28, 89, 69);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelTurnos);
+		panelTurnos.setLayout(null);
+
+		JButton btnTurnos = new JButton("Turnos");
+		btnTurnos.setBounds(0, 46, 84, 23);
+		panelTurnos.add(btnTurnos);
+
+		//		Imagen para boton Historias Clínicas
+		JPanelConFondo panelHC = new JPanelConFondo();
+		panelHC.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/HistoriasClinicas.jpg")));
+		panelHC.setBounds(10, 149, 100, 72);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelHC);
+		panelHC.setLayout(null);
+
+		JButton btnHistoriasClnicas = new JButton("Historias C.");
+		btnHistoriasClnicas.setBounds(0, 49, 100, 23);
+		panelHC.add(btnHistoriasClnicas);
+		btnHistoriasClnicas.setToolTipText("Historias Cl\u00EDnicas");
+
+		//      Imagen para boton Radiografías
+		JPanelConFondo panelRadiog = new JPanelConFondo();
+		panelRadiog.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Radiografias.jpg")));
+		panelRadiog.setBounds(119, 148, 110, 73);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelRadiog);
+		panelRadiog.setLayout(null);
+
+		JButton btnRadiografas = new JButton("Radiograf\u00EDas");
+		btnRadiografas.setBounds(0, 50, 107, 23);
+		panelRadiog.add(btnRadiografas);
+
+		//		Imagen para boton buscar
+		JPanelConFondo panelBuscar = new JPanelConFondo();
+		panelBuscar.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Buscar.jpg")));
+		panelBuscar.setBounds(241, 149, 89, 72);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelBuscar);
+		panelBuscar.setLayout(null);
+
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(0, 49, 89, 23);
+		panelBuscar.add(btnBuscar);
+
+		//		Imagen para boton Información		
+		JPanelConFondo panelInfo = new JPanelConFondo();
+		panelInfo.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Info.jpg")));
+		panelInfo.setBounds(340, 149, 105, 62);
+		frmCentroOdontolgicoIntegral.getContentPane().add(panelInfo);
+		panelInfo.setLayout(null);
 	}
 }
