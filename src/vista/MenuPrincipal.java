@@ -11,9 +11,11 @@ import javax.swing.JMenuItem;
 import java.awt.Panel;
 import javax.swing.JMenu;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 
-public class MenuPrincipal {
+public class MenuPrincipal implements ActionListener{
 	//PRUEBA ARAM
 	//Prueba Gas
 	//Prueba REni
@@ -137,5 +139,11 @@ public class MenuPrincipal {
 		panelInfo.setBounds(340, 149, 105, 62);
 		frmCentroOdontolgicoIntegral.getContentPane().add(panelInfo);
 		panelInfo.setLayout(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
