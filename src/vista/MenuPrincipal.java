@@ -12,6 +12,8 @@ import java.awt.Panel;
 import javax.swing.JMenu;
 import java.awt.Toolkit;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuPrincipal {
 	//PRUEBA ARAM
@@ -72,6 +74,11 @@ public class MenuPrincipal {
 		panelPaciente.setLayout(null);
 
 		JButton btnPacientes = new JButton("Pacientes");
+		btnPacientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new VentanaPacientes();
+			}
+		});
 		btnPacientes.setBounds(0, 46, 99, 23);
 		panelPaciente.add(btnPacientes);
 

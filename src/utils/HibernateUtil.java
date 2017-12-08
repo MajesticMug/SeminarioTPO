@@ -88,4 +88,9 @@ public class HibernateUtil {
 		
 		session.close();
   }
+
+public static Session openSession()
+{
+	return getSessionFactory().openSession();
+}
 }

@@ -66,7 +66,7 @@ public class AltaTurno extends JFrame
 		contentPane.setLayout(null);
 		frmAltaTurno.setContentPane(contentPane);
 		
-		JDateChooser dateChooser = new JDateChooser();
+		final JDateChooser dateChooser = new JDateChooser();
 		dateChooser.setBounds(158, 126, 97, 20);
 		contentPane.add(dateChooser);
 		
@@ -120,8 +120,10 @@ public class AltaTurno extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				Date date = dateChooser.getDate();
 				//int prueba = (int) hora.getSelectedItem();
-				date.setHours((int) hora.getSelectedItem());
-				date.setMinutes((int) minutos.getSelectedItem());
+				
+				// TODO: javier: lo de abajo esta roto
+				//date.setHours((int) hora.getSelectedItem());
+				//date.setMinutes((int) minutos.getSelectedItem());
 				System.out.println("DATE CHOOSER "+date.toString());
 			}
 		});

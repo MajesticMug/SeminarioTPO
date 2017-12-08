@@ -50,6 +50,21 @@ public class FichaOdontologica
 		this.historiaClinica = historiaClinica;
 		this.puntosMarcados = puntosMarcados;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getNroFichaOdontologica() + (getFechaCreacionFicha() != null ? " - " +  getFechaCreacionFicha().toString() : "");
+	}
+	
+	@Override
+	public boolean equals(Object p)
+	{
+		if (p instanceof Paciente) {
+			return this.getNroFichaOdontologica() == ((FichaOdontologica) p).getNroFichaOdontologica();
+		}
+		return super.equals(p);
+	}
 
 	public Date getFechaCreacionFicha()
 	{

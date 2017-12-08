@@ -17,6 +17,10 @@ public abstract class Usuario
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int usuarioId;	
+	public void setUsuarioId(int usuarioId)
+	{
+		this.usuarioId = usuarioId;
+	}
 	private String nombre;
 	private String apellido;
 	private String tipoDocumento;

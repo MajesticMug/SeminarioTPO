@@ -42,6 +42,21 @@ public class Radiografia
 		this.paciente = paciente;
 		this.radiologo = radiologo;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getNroRadiografia() + (getFechaRadiografia() != null ? " - " + getFechaRadiografia().toString() : "");
+	}
+	
+	@Override
+	public boolean equals(Object p)
+	{
+		if (p instanceof Paciente) {
+			return this.getNroRadiografia() == ((Radiografia) p).getNroRadiografia();
+		}
+		return super.equals(p);
+	}
 
 	public int getNroRadiografia()
 	{

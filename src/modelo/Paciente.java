@@ -50,6 +50,20 @@ public class Paciente extends Usuario
 		this.nroOsPaciente = nroOsPaciente;
 	}
 	
+	@Override
+	public String toString()
+	{
+		return getNroDocumento() + " - " + getApellido() + ", " + getNombre();
+	}
+	
+	@Override
+	public boolean equals(Object p)
+	{
+		if (p instanceof Paciente) {
+			return this.getUsuarioId() == ((Paciente) p).getUsuarioId();
+		}
+		return super.equals(p);
+	}
 	
 	public HistoriaClinica getHistoriaClinica()
 	{

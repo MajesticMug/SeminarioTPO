@@ -11,15 +11,17 @@ import utils.HibernateUtil;
 
 public class Sistema
 {
-	private List<Paciente> pacientes;
-	private List<Odontologo> odontologos;
-	private List<Radiologo> radiologos;
+	private static Sistema instancia;
+	public static Sistema getInstancia() {
+		if (instancia == null) {
+			instancia = new Sistema();
+		}
+		return instancia;
+	}
 	
-	public Sistema() {
-		pacientes = PacienteDAO.getInstancia().findAll();
-		odontologos = OdontologoDAO.getInstancia().findAll();
-		radiologos = RadiologoDAO.getInstancia().findAll();
-	}	
+	private Sistema() {
+		
+	}
 	
 	/*
 	 * Test
@@ -36,14 +38,24 @@ public class Sistema
 	}
 
 	public List<Paciente> getPacientes() {
-		return pacientes;
+		return PacienteDAO.getInstancia().findAll();
 	}
 
 	public List<Odontologo> getOdontologos() {
-		return odontologos;
+		return OdontologoDAO.getInstancia().findAll();
 	}
 
 	public List<Radiologo> getRadiologos() {
-		return radiologos;
+		return RadiologoDAO.getInstancia().findAll();
+	}
+
+	public void nuevoPaciente(Paciente p)
+	{
+		PacienteDAO.getInstancia().save(p);
+	}
+
+	public void actualizarPaciente(Paciente p)
+	{
+		PacienteDAO.getInstancia().update(p);		
 	}
 }
