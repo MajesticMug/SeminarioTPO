@@ -12,9 +12,11 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login extends JFrame {
-
+	private static Login inst=null;
 	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JTextField txtContrasea;
@@ -35,6 +37,13 @@ public class Login extends JFrame {
 		});
 	}
 
+	public static Login getInstance(){
+		if(inst==null){
+			inst = new Login();
+		}
+		return inst;
+	}
+	
 	/**
 	 * Create the frame.
 	 */
@@ -47,6 +56,12 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPrincipal menu = new MenuPrincipal();
+			
+			}
+		});
 		btnAceptar.setBounds(155, 185, 89, 23);
 		contentPane.add(btnAceptar);
 		
