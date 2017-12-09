@@ -34,6 +34,21 @@ public class Radiologo extends Usuario
 		
 		this.nroMatricula = nroMatricula;
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getNroDocumento() + " - " + getApellido() + ", " + getNombre();
+	}
+	
+	@Override
+	public boolean equals(Object p)
+	{
+		if (p instanceof Radiologo) {
+			return this.getUsuarioId() == ((Radiologo) p).getUsuarioId();
+		}
+		return super.equals(p);
+	}
 
 	public int getNroMatricula()
 	{

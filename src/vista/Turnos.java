@@ -136,7 +136,6 @@ public class Turnos extends JFrame implements ActionListener {
 		contentPane.add(btnVolver);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		

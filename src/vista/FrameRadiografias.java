@@ -56,7 +56,6 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 	}
 
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		

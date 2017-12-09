@@ -92,6 +92,11 @@ public class MenuPrincipal implements ActionListener{
 		panelEspecialistas.setLayout(null);
 
 		JButton btnEsecialistas = new JButton("Especialistas");
+		btnEsecialistas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new VentanaEspecialistas();
+			}
+		});
 		btnEsecialistas.setBounds(0, 46, 116, 23);
 		panelEspecialistas.add(btnEsecialistas);
 
@@ -148,7 +153,6 @@ public class MenuPrincipal implements ActionListener{
 		panelInfo.setLayout(null);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		

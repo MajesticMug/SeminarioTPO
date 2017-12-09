@@ -19,4 +19,14 @@ public class RadiologoDAO {
 		return HibernateUtil.getSessionFactory().openSession().createQuery("from Radiologo").list();
 	}
 
+	public void save(Radiologo r)
+	{
+		HibernateUtil.guardarEntidad(r);		
+	}
+
+	public void update(Radiologo r)
+	{
+		HibernateUtil.actualizarEntidad(r);
+	}
+
 }

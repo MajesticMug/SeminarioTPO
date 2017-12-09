@@ -34,6 +34,21 @@ public class Odontologo extends Usuario
 		
 		this.setNroMatricula(nroMatricula);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return getNroDocumento() + " - " + getApellido() + ", " + getNombre();
+	}
+	
+	@Override
+	public boolean equals(Object p)
+	{
+		if (p instanceof Odontologo) {
+			return this.getUsuarioId() == ((Odontologo) p).getUsuarioId();
+		}
+		return super.equals(p);
+	}
 
 	public int getNroMatricula()
 	{

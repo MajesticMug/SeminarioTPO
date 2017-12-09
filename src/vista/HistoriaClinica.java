@@ -142,7 +142,6 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		contentPane.add(panelPaciente);
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==btnOdontograma){

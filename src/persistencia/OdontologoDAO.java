@@ -18,6 +18,16 @@ public class OdontologoDAO {
 	public List<Odontologo> findAll() {
 		return HibernateUtil.getSessionFactory().openSession().createQuery("from Odontologo").list();
 	}
+
+	public void save(Odontologo o)
+	{
+		HibernateUtil.guardarEntidad(o);		
+	}
+
+	public void update(Odontologo o)
+	{
+		HibernateUtil.actualizarEntidad(o);
+	}
 	
 	
 

@@ -56,7 +56,6 @@ public class FrameInformacion extends javax.swing.JFrame implements ActionListen
 	}
 
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		

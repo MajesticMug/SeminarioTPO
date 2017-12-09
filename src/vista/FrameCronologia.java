@@ -56,7 +56,6 @@ public class FrameCronologia extends javax.swing.JFrame implements ActionListene
 	}
 
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		

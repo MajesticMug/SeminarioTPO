@@ -52,10 +52,30 @@ public class Sistema
 	public void nuevoPaciente(Paciente p)
 	{
 		PacienteDAO.getInstancia().save(p);
+		getPacientes().add(p);
+	}
+	
+	public void nuevoOdontologo(Odontologo o) {
+		OdontologoDAO.getInstancia().save(o);
+		getOdontologos().add(o);
+	}
+	
+	public void nuevoRadiologo(Radiologo r) {
+		RadiologoDAO.getInstancia().save(r);
+		getRadiologos().add(r);
 	}
 
 	public void actualizarPaciente(Paciente p)
 	{
 		PacienteDAO.getInstancia().update(p);		
+	}
+
+	public void actualizarOdontologo(Odontologo o)
+	{
+		OdontologoDAO.getInstancia().update(o);
+	}
+	
+	public void actualizarRadiologo(Radiologo r) {
+		RadiologoDAO.getInstancia().update(r);
 	}
 }
