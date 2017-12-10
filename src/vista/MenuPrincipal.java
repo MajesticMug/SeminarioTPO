@@ -102,6 +102,16 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelPaciente.setLayout(null);
 
 		btnPacientes = new JButton("Pacientes");
+		btnPacientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnPacientes){
+					Pacientes t = Pacientes.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+				
+			}
+		});
 		btnPacientes.setBounds(0, 46, 99, 23);
 		panelPaciente.add(btnPacientes);
 
@@ -113,6 +123,15 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelEspecialistas.setLayout(null);
 
 		btnEspecialistas = new JButton("Especialistas");
+		btnEspecialistas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnEspecialistas){
+					Especialistas t = Especialistas.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnEspecialistas.setBounds(0, 46, 116, 23);
 		panelEspecialistas.add(btnEspecialistas);
 

@@ -196,7 +196,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					MenuPrincipal o = MenuPrincipal.getInstance();
+					BuscarHistoriaClinica o = BuscarHistoriaClinica.getInstance();
 					o.setVisible(true);
 					inst.setVisible(false);
 				}
