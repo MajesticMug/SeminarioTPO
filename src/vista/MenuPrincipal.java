@@ -115,6 +115,19 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelTurnos.setLayout(null);
 
 		btnTurnos = new JButton("Turnos");
+		btnTurnos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+								
+				if(e.getSource()==btnTurnos){
+					Turnos t = Turnos.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+			
+		});
 		btnTurnos.setBounds(0, 46, 84, 23);
 		panelTurnos.add(btnTurnos);
 
@@ -126,6 +139,15 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelHC.setLayout(null);
 
 		btnHistoriasClinicas = new JButton("Historias C.");
+		btnHistoriasClinicas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnHistoriasClinicas){
+					HistoriaClinica hc = HistoriaClinica.getInstance();
+					hc.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnHistoriasClinicas.setBounds(0, 49, 100, 23);
 		panelHC.add(btnHistoriasClinicas);
 		btnHistoriasClinicas.setToolTipText("Historias Cl\u00EDnicas");
@@ -186,9 +208,9 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 			this.setVisible(false);
 		}
 		if(e.getSource()==btnHistoriasClinicas){
-			FrameInformacion i = FrameInformacion.getInstance();
-			i.setVisible(true);
-			this.setVisible(false);
+//			FrameInformacion i = FrameInformacion.getInstance();
+//			i.setVisible(true);
+//			this.setVisible(false);
 		}
 		if(e.getSource()==btnRadiografias){
 			FrameRadiografias r = FrameRadiografias.getInstance();

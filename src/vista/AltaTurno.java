@@ -35,8 +35,8 @@ public class AltaTurno extends JFrame
 			{
 				try
 				{
-					AltaTurno window = new AltaTurno();
-					window.frmAltaTurno.setVisible(true);
+					AltaTurno frame = new AltaTurno();
+					frame.frmAltaTurno.setVisible(true);
 				} catch (Exception e)
 				{
 					e.printStackTrace();
@@ -56,6 +56,7 @@ public class AltaTurno extends JFrame
 	 */
 	public AltaTurno()
 	{
+		super();
 		initialize();
 	}
 

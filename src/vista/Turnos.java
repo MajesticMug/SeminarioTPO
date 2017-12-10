@@ -102,7 +102,12 @@ public class Turnos extends JFrame implements ActionListener {
 
 		btnAgregarTurno = new JButton("Agregar");
 		btnAgregarTurno.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnAgregarTurno){
+					AltaTurno o = AltaTurno.getInstance();
+					o.setVisible(true);
+					inst.setVisible(false);
+				}
 			}
 		});
 		btnAgregarTurno.setBounds(345, 61, 89, 23);
@@ -138,6 +143,15 @@ public class Turnos extends JFrame implements ActionListener {
 		contentPane.add(btnSeleccionar);
 		
 		btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnVolver){
+					HistoriaClinica hc = HistoriaClinica.getInstance();
+					hc.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnVolver.setBounds(345, 228, 89, 23);
 		contentPane.add(btnVolver);
 	}

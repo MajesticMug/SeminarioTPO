@@ -81,6 +81,15 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		contentPane.add(panelOdontograma);
 
 		btnOdontograma = new JButton("Odontograma");
+		btnOdontograma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnOdontograma){
+					FrameOdontograma o = FrameOdontograma.getInstance();
+					o.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnOdontograma.setBounds(1, 116, 120, 23);
 		contentPane.add(btnOdontograma);
 
