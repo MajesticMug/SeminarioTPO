@@ -66,7 +66,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 492, 274);
+		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -75,6 +75,15 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 
 		btnInformacion = new JButton("Informaci\u00F3n");
+		btnInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnInformacion){
+					InfoMenuPpal t = InfoMenuPpal.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnInformacion.setBounds(340, 198, 105, 23);
 		contentPane.add(btnInformacion);
 
@@ -160,6 +169,15 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelRadiog.setLayout(null);
 
 		btnRadiografias = new JButton("Radiograf\u00EDas");
+		btnRadiografias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnRadiografias){
+					FrameRadiografias r = FrameRadiografias.getInstance();
+					r.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnRadiografias.setBounds(0, 50, 107, 23);
 		panelRadiog.add(btnRadiografias);
 
@@ -171,6 +189,15 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelBuscar.setLayout(null);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnBuscar){
+					BuscarPersona bp = BuscarPersona.getInstance();
+					bp.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnBuscar.setBounds(0, 49, 89, 23);
 		panelBuscar.add(btnBuscar);
 

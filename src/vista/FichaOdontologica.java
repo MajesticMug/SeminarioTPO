@@ -24,11 +24,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class FichaOdontologica extends JFrame {
-
+	
 	
 	/**
 	 * 
 	 */
+	private static FichaOdontologica inst = null;
 	private static final long serialVersionUID = 1332996636763672080L;
 
 	private List<Point> points = new ArrayList<Point>();
@@ -77,6 +78,12 @@ public class FichaOdontologica extends JFrame {
 		});
 
 		background = ImageIO.read(new File("src/resources/img/FormularioDental.jpg"));
+	}
+	public static FichaOdontologica getInstance(Paciente p) throws IOException{
+		if(inst == null){
+			inst = new FichaOdontologica(p);
+		}
+		return inst;
 	}
 
 	@Override

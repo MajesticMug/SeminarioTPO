@@ -49,7 +49,8 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+//		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -59,6 +60,8 @@ public class Login extends JFrame {
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnAceptar){
+					
+//					ARMAR VALIDACION DE USUARIO ACA
 					MenuPrincipal mp = MenuPrincipal.getInstance();
 					mp.setVisible(true);
 					inst.setVisible(false);

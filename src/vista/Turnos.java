@@ -59,7 +59,7 @@ public class Turnos extends JFrame implements ActionListener {
 	 */
 	public Turnos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -146,8 +146,8 @@ public class Turnos extends JFrame implements ActionListener {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					HistoriaClinica hc = HistoriaClinica.getInstance();
-					hc.setVisible(true);
+					MenuPrincipal mp = MenuPrincipal.getInstance();
+					mp.setVisible(true);
 					inst.setVisible(false);
 				}
 			}

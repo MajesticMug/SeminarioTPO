@@ -7,12 +7,17 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+import modelo.Paciente;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -20,6 +25,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 
 	private JDesktopPane contentPane;
 	private JTextField txtPaciente;
+	private int dniPaciente;
 	private JButton btnOdontograma;
 	private JButton btnPendientes;
 	private JButton btnCronologia;
@@ -56,7 +62,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	 */
 	public HistoriaClinica() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,7 +90,14 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		btnOdontograma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnOdontograma){
-					FrameOdontograma o = FrameOdontograma.getInstance();
+					Paciente p = controlador.Sistema.getInstance().buscarPaciente(dniPaciente);
+					FichaOdontologica o = null;
+					try {
+						o = FichaOdontologica.getInstance(p);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					o.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -98,14 +111,34 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		contentPane.add(btnPendientes);
 
 		btnCronologia = new JButton("Cronolog\u00EDa");
-		btnCronologia.setBounds(1, 216, 104, 23);
+		btnCronologia.setBounds(0, 216, 104, 23);
 		contentPane.add(btnCronologia);
 
 		JButton btnInfo = new JButton("Info");
+		btnInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(e.getSource()==btnInfo){
+					Informacion t = Informacion.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnInfo.setBounds(327, 216, 89, 23);
 		contentPane.add(btnInfo);
 
 		JButton btnFotos = new JButton("Fotos");
+		btnFotos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(e.getSource()==btnFotos){
+					Fotos f = Fotos.getInstance();
+					f.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnFotos.setBounds(114, 216, 89, 23);
 		contentPane.add(btnFotos);
 
@@ -129,6 +162,15 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		panelRadiografias.setLayout(null);
 
 		btnRadiografias = new JButton("Radiograf\u00EDas");
+		btnRadiografias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnRadiografias){
+					Radiografias r = Radiografias.getInstance();
+					r.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnRadiografias.setBounds(0, 44, 108, 23);
 		panelRadiografias.add(btnRadiografias);
 
@@ -149,6 +191,19 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		panelPaciente.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Paciente1.jpg")));
 		panelPaciente.setBounds(278, 39, 119, 103);
 		contentPane.add(panelPaciente);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnVolver){
+					MenuPrincipal o = MenuPrincipal.getInstance();
+					o.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
+		btnVolver.setBounds(327, 239, 89, 23);
+		contentPane.add(btnVolver);
 	}
 
 	@Override
