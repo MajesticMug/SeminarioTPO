@@ -124,7 +124,7 @@ public class Pacientes extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					MenuPrincipal t = MenuPrincipal.getInstance();
+					AdministrarPacientes t = AdministrarPacientes.getInstance();
 					t.setVisible(true);
 					inst.setVisible(false);
 				}

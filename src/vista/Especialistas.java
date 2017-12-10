@@ -96,7 +96,7 @@ public class Especialistas extends JFrame {
 		txtDireccin = new JTextField();
 		txtDireccin.setToolTipText("Direcci\u00F3n");
 		txtDireccin.setText("Direcci\u00F3n");
-		txtDireccin.setBounds(10, 108, 214, 20);
+		txtDireccin.setBounds(10, 108, 214, 20); 
 		contentPane.add(txtDireccin);
 		txtDireccin.setColumns(10);
 		
@@ -124,7 +124,7 @@ public class Especialistas extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					MenuPrincipal t = MenuPrincipal.getInstance();
+					AdministrarEspecialistas t = AdministrarEspecialistas.getInstance();
 					t.setVisible(true);
 					inst.setVisible(false);
 				}

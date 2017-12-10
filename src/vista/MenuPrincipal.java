@@ -105,7 +105,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		btnPacientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnPacientes){
-					Pacientes t = Pacientes.getInstance();
+					AdministrarPacientes t = AdministrarPacientes.getInstance();
 					t.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -126,7 +126,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		btnEspecialistas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnEspecialistas){
-					Especialistas t = Especialistas.getInstance();
+					AdministrarEspecialistas t = AdministrarEspecialistas.getInstance();
 					t.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -170,7 +170,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		btnHistoriasClinicas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnHistoriasClinicas){
-					HistoriaClinica hc = HistoriaClinica.getInstance();
+					BuscarHistoriaClinica hc = BuscarHistoriaClinica.getInstance();
 					hc.setVisible(true);
 					inst.setVisible(false);
 				}

@@ -133,6 +133,12 @@ public class Turnos extends JFrame implements ActionListener {
 		btnInfo = new JButton("Info");
 		btnInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnInfo){
+					InfoTurno mp = InfoTurno.getInstance();
+					mp.setVisible(true);
+					inst.setVisible(false);
+				}
+				
 			}
 		});
 		btnInfo.setBounds(0, 47, 89, 23);
