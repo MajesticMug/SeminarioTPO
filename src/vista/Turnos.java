@@ -11,6 +11,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextPane;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 
@@ -88,6 +89,11 @@ public class Turnos extends JFrame implements ActionListener {
 		//		--------------------------------------------
 		JList list = new JList();
 		list.setBounds(20, 42, 280, 128);
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("Turno 1");
+		modeloList.addElement("Turno 2");
+		modeloList.addElement("Turno 3");
+		list.setModel(modeloList);
 		contentPane.add(list);
 
 		JScrollBar scrollBar = new JScrollBar();

@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -66,6 +67,11 @@ public class Radiografias extends JFrame {
 
 		JList list = new JList();
 		list.setBounds(21, 47, 229, 144);
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("Radiografía 1");
+		modeloList.addElement("Radiografía 2");
+		modeloList.addElement("Radiografía 3");
+		list.setModel(modeloList);
 		contentPane.add(list);
 
 		JButton btnAceptar = new JButton("Aceptar");

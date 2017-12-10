@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -58,6 +59,11 @@ public class AdministrarEspecialistas extends JFrame {
 		
 		JList list = new JList();
 		list.setBounds(20, 36, 287, 179);
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("Especialista 1");
+		modeloList.addElement("Especialista 2");
+		modeloList.addElement("Especialista 3");
+		list.setModel(modeloList);
 		contentPane.add(list);
 		
 		JButton btnAdministrar = new JButton("Administrar");

@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -65,6 +66,11 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 
 			JList list = new JList();
 			list.setBounds(21, 47, 229, 144);
+			DefaultListModel<String> modeloList = new DefaultListModel();
+			modeloList.addElement("Radiografía 1");
+			modeloList.addElement("Radiografía 2");
+			modeloList.addElement("Radiografía 3");
+			list.setModel(modeloList);
 			contenedor.add(list);
 
 			JButton btnAceptar = new JButton("Aceptar");

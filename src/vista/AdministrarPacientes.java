@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -59,6 +60,11 @@ public class AdministrarPacientes extends JFrame {
 		
 		JList list = new JList();
 		list.setBounds(20, 36, 287, 179);
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("Paciente 1");
+		modeloList.addElement("Paciente 2");
+		modeloList.addElement("Paciente 3");
+		list.setModel(modeloList);
 		contentPane.add(list);
 		
 		JButton btnAdministrar = new JButton("Administrar");
@@ -71,7 +77,7 @@ public class AdministrarPacientes extends JFrame {
 				}	
 			}
 		});
-		btnAdministrar.setBounds(203, 226, 89, 23);
+		btnAdministrar.setBounds(173, 226, 119, 23);
 		contentPane.add(btnAdministrar);
 		
 		JButton btnVolver = new JButton("Volver");

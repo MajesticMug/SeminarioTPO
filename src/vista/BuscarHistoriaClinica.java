@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -57,6 +58,11 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		
 		JList list = new JList();
 		list.setBounds(20, 36, 297, 167);
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("Historia Clinica 1");
+		modeloList.addElement("Historia Clinica 2");
+		modeloList.addElement("Historia Clinica 3");
+		list.setModel(modeloList);
 		contentPane.add(list);
 		
 		JButton btnSeleccionar = new JButton("Seleccionar");
