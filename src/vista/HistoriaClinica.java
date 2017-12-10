@@ -32,7 +32,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	private JButton btnFotos;
 	private JButton btnRadiografias;
 	private JButton btnInfo;
-    private static HistoriaClinica inst=null;
+	private static HistoriaClinica inst=null;
 	/**
 	 * Launch the application.
 	 */
@@ -49,14 +49,14 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		});
 	}
 
-	
+
 	public static HistoriaClinica getInstance(){
 		if(inst == null){
 			inst = new HistoriaClinica();
 		}
 		return inst;
 	}
-	
+
 	/**
 	 * Create the frame.
 	 */
@@ -107,17 +107,35 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		contentPane.add(btnOdontograma);
 
 		btnPendientes = new JButton("Pendientes");
+		btnPendientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnPendientes){
+					Pendientes t = Pendientes.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnPendientes.setBounds(131, 116, 104, 23);
 		contentPane.add(btnPendientes);
 
 		btnCronologia = new JButton("Cronolog\u00EDa");
+		btnCronologia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnCronologia){
+					Cronologia t = Cronologia.getInstance();
+					t.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnCronologia.setBounds(0, 216, 104, 23);
 		contentPane.add(btnCronologia);
 
 		JButton btnInfo = new JButton("Info");
 		btnInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if(e.getSource()==btnInfo){
 					Informacion t = Informacion.getInstance();
 					t.setVisible(true);
@@ -131,7 +149,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		JButton btnFotos = new JButton("Fotos");
 		btnFotos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				if(e.getSource()==btnFotos){
 					Fotos f = Fotos.getInstance();
 					f.setVisible(true);
@@ -191,7 +209,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		panelPaciente.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Paciente1.jpg")));
 		panelPaciente.setBounds(278, 39, 119, 103);
 		contentPane.add(panelPaciente);
-		
+
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
