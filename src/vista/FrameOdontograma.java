@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+import modelo.Paciente;
+
 public class FrameOdontograma extends javax.swing.JFrame implements ActionListener{
 	private JDesktopPane contenedor;
 	private JButton salir;
@@ -31,7 +33,7 @@ public class FrameOdontograma extends javax.swing.JFrame implements ActionListen
 		});
 	}
 	
-	private FrameOdontograma() {
+	FrameOdontograma() {
 		super();
 		initGUI();
 	}
@@ -40,9 +42,12 @@ public class FrameOdontograma extends javax.swing.JFrame implements ActionListen
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			
+			Paciente p = new Paciente();
+			FichaOdontologica f = new FichaOdontologica(p);
 			
 			pack();
 			this.setSize(413, 341);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

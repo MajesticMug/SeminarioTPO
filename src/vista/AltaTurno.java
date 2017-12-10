@@ -18,9 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class AltaTurno extends JFrame
-{
+{	
 
 	private JFrame frmAltaTurno;
+	private static AltaTurno inst = null;
+	
 
 	/**
 	 * Launch the application.
@@ -43,6 +45,12 @@ public class AltaTurno extends JFrame
 		});
 	}
 
+	public static AltaTurno getInstance(){
+		if(inst == null){
+			inst = new AltaTurno();
+		}
+		return inst;
+	}
 	/**
 	 * Create the application.
 	 */

@@ -30,7 +30,7 @@ public class Turnos extends JFrame implements ActionListener {
 	private JButton btnInfo;
 	private JButton btnSeleccionar;
 	private JButton btnVolver;
-    private static HistoriaClinica inst=null;
+    private static Turnos inst=null;
 
 	/**
 	 * Launch the application.
@@ -48,6 +48,12 @@ public class Turnos extends JFrame implements ActionListener {
 		});
 	}
 
+	public static Turnos getInstance(){
+		if(inst == null){
+			inst = new Turnos();
+		}
+		return inst;
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -140,19 +146,33 @@ public class Turnos extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
-//		private JButton btnAgregarTurno;
-//		private JButton btnBuscar;
-//		private JButton btnModificar;
-//		private JButton btnInfo;
-//		private JButton btnSeleccionar;
-//		private JButton btnVolver;
-		
+
 		if(e.getSource()==btnAgregarTurno){
+			AltaTurno o = AltaTurno.getInstance();
+			o.setVisible(true);
+			this.setVisible(false);
+		}
+		if(e.getSource()==btnBuscar){
 			FrameOdontograma o = FrameOdontograma.getInstance();
 			o.setVisible(true);
 			this.setVisible(false);
 		}
-		if(e.getSource()==btnAgregarTurno){
+		if(e.getSource()==btnModificar){
+			FrameOdontograma o = FrameOdontograma.getInstance();
+			o.setVisible(true);
+			this.setVisible(false);
+		}
+		if(e.getSource()==btnInfo){
+			FrameOdontograma o = FrameOdontograma.getInstance();
+			o.setVisible(true);
+			this.setVisible(false);
+		}
+		if(e.getSource()==btnSeleccionar){
+			FrameOdontograma o = FrameOdontograma.getInstance();
+			o.setVisible(true);
+			this.setVisible(false);
+		}
+		if(e.getSource()==btnVolver){
 			FrameOdontograma o = FrameOdontograma.getInstance();
 			o.setVisible(true);
 			this.setVisible(false);
