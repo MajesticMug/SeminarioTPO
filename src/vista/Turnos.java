@@ -22,6 +22,7 @@ import javax.swing.JDesktopPane;
 
 import java.awt.Color;
 import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
@@ -99,11 +100,11 @@ public class Turnos extends JFrame implements ActionListener {
 //		List<Turno> listaTurno = Sistema.getInstance().getTurnos();
 //		int i = 0;
 //		while (i < listaTurno.size()){
-//			
+//			if (dateChooser.getDate() == listaTurno.get(i).getFechaTurno()){
 //			modeloList.addElement(listaTurno.get(i).getPaciente().getNombre() 
 //					            + ' ' + listaTurno.get(i).getPaciente().getApellido()
 //					            + '-' + listaTurno.get(i).getHoraTurno());
-//			
+//			}
 //		}
 		modeloList.addElement("Turno 1");
 		modeloList.addElement("Turno 2");
@@ -111,9 +112,10 @@ public class Turnos extends JFrame implements ActionListener {
 		list.setModel(modeloList);
 		contentPane.add(list);
 
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(307, 42, 17, 128);
-		contentPane.add(scrollBar);
+//		JScrollPane barra = new JScrollPane(list); 
+//		barra.getViewport().add(list); 
+//		barra.setBounds(307, 42, 17, 128);
+//		contentPane.add(barra);
 		//		--------------------------------------------
 		//		Panel para agregar Turno
 		JPanelConFondo panelAgregar = new JPanelConFondo();
@@ -140,7 +142,15 @@ public class Turnos extends JFrame implements ActionListener {
 		panelModificar.setBounds(365, 94, 46, 39);
 		contentPane.add(panelModificar);
 
-		btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Eliminar");
+		btnModificar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String selected = (String) list.getSelectedValue();
+				
+				Turno turno = Sistema.getInstance().buscarTurnos(selected);
+				Sistema.getInstance().eliminarTurno(turno);
+			}
+		});
 		btnModificar.setBounds(345, 133, 89, 23);
 		contentPane.add(btnModificar);
 
