@@ -87,7 +87,7 @@ public class AdministrarEspecialistas extends JFrame {
 				
 			}
 		});
-		btnAdministrar.setBounds(203, 226, 89, 23);
+		btnAdministrar.setBounds(174, 226, 118, 23);
 		contentPane.add(btnAdministrar);
 		
 		JButton btnVolver = new JButton("Volver");

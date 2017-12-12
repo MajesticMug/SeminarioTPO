@@ -123,6 +123,19 @@ public class Sistema
 		return odonto;
 	}
 	
+	public Radiologo buscarRadiologo (int dni){
+		Radiologo rad= null;
+		Integer i = 0;
+		while ( i < this.radiologos.size()){
+
+			if (this.radiologos.get(i).getNroDocumento() == dni ){
+				return this.radiologos.get(i);
+			}
+			i++;
+		}
+		return rad;
+	}
+	
 	public void agregarOdontologo (Odontologo o){
 		this.odontologos.add(o);
 	}
@@ -136,6 +149,20 @@ public class Sistema
 			index++;
 		}
 		
+	}
+	
+	public void agregarRadiologo (Radiologo r){
+		this.radiologos.add(r);
+	}
+	
+	public void eliminarRadiologo(Radiologo rad){
+		int index = 0;
+		while (index < this.radiologos.size()){
+			if (this.radiologos.get(index).getNroDocumento() == rad.getNroDocumento()){
+				this.radiologos.remove(index);
+			}
+			index++;
+		}
 	}
 	
 	public void agregarTurno(Turno t){

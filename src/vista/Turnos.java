@@ -26,6 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
@@ -75,6 +76,8 @@ public class Turnos extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 
 		JDateChooser dateChooser = new JDateChooser();
+		Date date = new Date();
+		dateChooser.setDate(date);
 		dateChooser.setBounds(52, 11, 174, 20);
 		contentPane.add(dateChooser);
 
