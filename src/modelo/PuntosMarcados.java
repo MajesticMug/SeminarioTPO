@@ -13,7 +13,8 @@ public class PuntosMarcados
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	@Column(name="id_nro_marcado",nullable=false)
+	private Integer Id;
 	
 	@ElementCollection
 	private List<Integer> puntosX;
