@@ -6,11 +6,15 @@ import modelo.HistoriaClinica;
 import modelo.Odontologo;
 import modelo.Paciente;
 import modelo.PlanTratamiento;
+import modelo.PuntosMarcados;
 import modelo.Radiografia;
 import modelo.Radiologo;
 import modelo.Secretaria;
 import modelo.Turno;
 import modelo.Usuario;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,6 +29,19 @@ public class HibernateTest
 		Paciente paciente = new Paciente("OSDE", 123, "Javier", "Capello", "DNI", 1000000, "Calle falsa 123",
 				123123, 'm', new java.sql.Date(0, 0, 0), "PAC");
 		
+		PuntosMarcados puntos = new PuntosMarcados();
+		List<Integer> aux = new ArrayList<Integer>();
+		List<Integer> aux2 = new ArrayList<Integer>();
+		for (Integer i=0;i<10;i++) {
+			aux.add(i);
+		}
+		puntos.setPuntosX(aux);
+		
+		for (Integer i=0;i<10;i++) {
+			aux2.add(i);
+		}
+		puntos.setPuntosY(aux2);
+		
 		Configuration con = new Configuration().configure()
 				.addAnnotatedClass(Usuario.class)
 				.addAnnotatedClass(Paciente.class)
@@ -36,7 +53,8 @@ public class HibernateTest
 				.addAnnotatedClass(ConsentimientoTratamiento.class)
 				.addAnnotatedClass(Radiografia.class)
 				.addAnnotatedClass(HistoriaClinica.class)
-				.addAnnotatedClass(Turno.class);
+				.addAnnotatedClass(Turno.class)
+				.addAnnotatedClass(PuntosMarcados.class);
 		
 		SessionFactory sessionFactory = con.buildSessionFactory();
 		
@@ -44,6 +62,8 @@ public class HibernateTest
 		session.beginTransaction();
 
 		session.save(paciente);
+		
+		session.save(puntos);
 		
 		session.getTransaction().commit();
 		
