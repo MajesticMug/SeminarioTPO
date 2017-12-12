@@ -63,6 +63,8 @@ public class HibernateTest
 
 		session.save(paciente);
 		
+		session.save(puntos);
+		
 		session.getTransaction().commit();
 		
 		session.close();
