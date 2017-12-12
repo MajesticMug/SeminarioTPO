@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import java.awt.Color;
 
@@ -69,6 +70,7 @@ public class AltaTurno extends JFrame implements ActionListener
 	public AltaTurno()
 	{
 		super();
+		inst = this;
 		initialize();
 	}
 
@@ -185,8 +187,20 @@ public class AltaTurno extends JFrame implements ActionListener
 				System.out.println("Hora: "+hora.getSelectedItem());
 				System.out.println("Minutos: "+minutos.getSelectedItem());
 				
-				Turno turno = new Turno(date, horaTurno, minutoturno, null, comboBoxPaciente.getSelectedItem(), 
-						comboBoxProfesional.getSelectedItem(), null);
+				Turno turno = null;
+				
+				if (comboBoxProfesional.getSelectedItem() instanceof Odontologo) {
+					turno = new Turno(new java.sql.Date(date.getTime()), horaTurno, minutoturno, true, (Paciente)(comboBoxPaciente.getSelectedItem()), 
+							(Odontologo)(comboBoxProfesional.getSelectedItem()), null);
+				}
+				else if (comboBoxProfesional.getSelectedItem() instanceof Radiologo) {
+					turno = new Turno(new java.sql.Date(date.getTime()), horaTurno, minutoturno, true, (Paciente)(comboBoxPaciente.getSelectedItem()), 
+							null, (Radiologo)(comboBoxProfesional.getSelectedItem()));
+				}
+				else
+					JOptionPane.showMessageDialog(inst, "Error: el profesional seleccionado no es ni Odontologo ni Radiologo.");
+				
+				
 				
 //				Paciente   paciente   = null;
 //				Odontologo odontologo = null;
