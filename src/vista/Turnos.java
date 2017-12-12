@@ -113,9 +113,13 @@ public class Turnos extends JFrame implements ActionListener {
 //					            + " - " + listaTurno.get(i).getHoraTurno());
 //			}
 //		}
-		modeloList.addElement("Turno 1");
-		modeloList.addElement("Turno 2");
-		modeloList.addElement("Turno 3");
+		//modeloList.addElement("Turno 1");
+		//modeloList.addElement("Turno 2");
+		//modeloList.addElement("Turno 3");
+		List<Turno> turnos = Sistema.getInstance().getTurnos();
+		for(Turno t:turnos) {
+			modeloList.addElement(t.toString());
+		}
 		list.setModel(modeloList);
 		contentPane.add(list);
 
