@@ -1,0 +1,5 @@
+Datos para conexión con la base en la nube:
+
+Host: distribuidas.cmn4kv5f3nts.us-west-2.rds.amazonaws.com
+User: sa
+Pass: welcome1
