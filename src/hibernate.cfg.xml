@@ -6,7 +6,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-    <property name="hibernate.connection.url">jdbc:sqlserver://192.168.56.101:1433;databaseName=centro_odontologico</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://distribuidas.cmn4kv5f3nts.us-west-2.rds.amazonaws.com:1433;databaseName=centro_odontologico</property>
     <property name="hibernate.connection.username">sa</property>
     <property name="hibernate.connection.password">welcome1</property>
     <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
