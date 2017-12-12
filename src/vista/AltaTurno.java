@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class AltaTurno extends JFrame implements ActionListener
 {	
@@ -79,11 +80,14 @@ public class AltaTurno extends JFrame implements ActionListener
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		contentPane = new JDesktopPane();
+		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
 		JDateChooser dateChooser = new JDateChooser();
+		Date date = new Date();
+		dateChooser.setDate(date);
 		dateChooser.setBounds(158, 126, 226, 20);
 		contentPane.add(dateChooser);
 		
