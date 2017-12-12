@@ -41,10 +41,10 @@ public class Paciente extends Usuario
 
 	public Paciente(String osPaciente, int nroOsPaciente, String nombre, String apellido, String tipoDocumento,
 			int nroDocumento, String domicilio, int telefono, char sexo,
-			Date fechaNac, String funcion)
+			Date fechaNac, String funcion,String usuario,String contrasenia)
 	{
 		super(nombre, apellido, tipoDocumento, nroDocumento, domicilio, telefono, sexo,
-				fechaNac, funcion);
+				fechaNac, funcion,usuario,contrasenia);
 		
 		this.osPaciente = osPaciente;
 		this.nroOsPaciente = nroOsPaciente;

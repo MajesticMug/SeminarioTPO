@@ -7,9 +7,13 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
@@ -63,8 +67,18 @@ public class Login extends JFrame {
 					
 //					ARMAR VALIDACION DE USUARIO ACA
 					MenuPrincipal mp = MenuPrincipal.getInstance();
-					mp.setVisible(true);
-					inst.setVisible(false);
+					String usuario = txtUsuario.getText();
+					String contrasenia = txtContrasea.getText();
+					boolean validar = Sistema.getInstance().validarUsuario(usuario, contrasenia);
+					if(validar) {
+						mp.setVisible(true);
+						inst.setVisible(false);
+					}
+					else {
+						// ACA HAY QUE MOSTRAR EL ERROR DE LOGIN - NO SE COMO SE HACE
+						//JOptionPane.showMessageDialog(frame, "Usuario o contraseña no validos.", "Inane error", JOptionPane.ERROR_MESSAGE);
+					}
+					
 				}
 			}
 		});

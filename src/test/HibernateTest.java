@@ -27,7 +27,10 @@ public class HibernateTest
 	{
 		
 		Paciente paciente = new Paciente("OSDE", 123, "Javier", "Capello", "DNI", 1000000, "Calle falsa 123",
-				123123, 'm', new java.sql.Date(0, 0, 0), "PAC");
+				123123, 'm', new java.sql.Date(0, 0, 0), "PAC","jcapello","jcapello");
+		
+		Secretaria secretaria = new Secretaria("Juana", "De Arco", "DNI", 123456, "Calle falsa 321", 456456, 'f',
+				new java.sql.Date(0, 0, 0), "SEC","jdecarco","jdearco");
 		
 		PuntosMarcados puntos = new PuntosMarcados();
 		List<Integer> aux = new ArrayList<Integer>();
@@ -64,6 +67,8 @@ public class HibernateTest
 		session.save(paciente);
 		
 		session.save(puntos);
+		
+		session.save(secretaria);
 		
 		session.getTransaction().commit();
 		

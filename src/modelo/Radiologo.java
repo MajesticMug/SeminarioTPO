@@ -27,10 +27,10 @@ public class Radiologo extends Usuario
 
 	public Radiologo(int nroMatricula, String nombre, String apellido,
 			String tipoDocumento, int nroDocumento, String domicilio,
-			int telefono, char sexo, Date fechaNac, String funcion)
+			int telefono, char sexo, Date fechaNac, String funcion,String usuario,String contrasenia)
 	{
 		super(nombre, apellido, tipoDocumento, nroDocumento, domicilio,
-				telefono, sexo, fechaNac, funcion);
+				telefono, sexo, fechaNac, funcion,usuario,contrasenia);
 		
 		this.nroMatricula = nroMatricula;
 	}

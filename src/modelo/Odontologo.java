@@ -27,10 +27,10 @@ public class Odontologo extends Usuario
 	
 	public Odontologo(int nroMatricula, String nombre, String apellido,
 			String tipoDocumento, int nroDocumento, String domicilio,
-			int telefono, char sexo, Date fechaNac, String funcion)
+			int telefono, char sexo, Date fechaNac, String funcion,String usuario,String contrasenia)
 	{
 		super(nombre, apellido, tipoDocumento, nroDocumento, domicilio,
-				telefono, sexo, fechaNac, funcion);
+				telefono, sexo, fechaNac, funcion,usuario,contrasenia);
 		
 		this.setNroMatricula(nroMatricula);
 	}

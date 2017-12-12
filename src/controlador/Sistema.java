@@ -180,4 +180,11 @@ public class Sistema
 		}
 		
 	}
+
+	// VALIDAR USUARIO
+	public boolean validarUsuario (String usuario, String contrasenia){
+		
+		return UsuarioDAO.getInstancia().validarUsuario(usuario, contrasenia);
+		
+	}
 }

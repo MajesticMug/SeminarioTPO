@@ -121,7 +121,7 @@ public class FichaOdontologica extends JFrame {
 		Date fecha = new Date(new java.util.Date().getTime());
 
 		Paciente paciente = new Paciente("OSDE", 123, "Javier", "Capello", "DNI", 1000000, "Calle falsa 123",
-				123123, 'm', fecha, "PAC");
+				123123, 'm', fecha, "PAC", "jcapello","jcapello");
 
 		HistoriaClinica historiaClinica = new HistoriaClinica("", paciente);
 

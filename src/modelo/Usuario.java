@@ -26,6 +26,8 @@ public abstract class Usuario
 	private char sexo;
 	private Date fechaNac;
 	private String funcion;
+	private String usuario;
+	private String contrasenia;
 	
 	public Usuario() { 
 		
@@ -33,7 +35,7 @@ public abstract class Usuario
 	
 	public Usuario(String nombre, String apellido,
 			String tipoDocumento, int nroDocumento, String domicilio,
-			int telefono, char sexo, Date fechaNac, String funcion)
+			int telefono, char sexo, Date fechaNac, String funcion, String usuario, String contrasenia)
 	{
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -44,9 +46,27 @@ public abstract class Usuario
 		this.sexo = sexo;
 		this.fechaNac = fechaNac;
 		this.funcion = funcion;
+		this.usuario=usuario;
+		this.contrasenia=contrasenia;
 	}
 	
 	
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
 	public String getNombre()
 	{
 		return nombre;
