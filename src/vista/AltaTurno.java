@@ -9,6 +9,8 @@ import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import com.toedter.calendar.DateUtil;
 import com.toedter.calendar.JDateChooser;
 
 import controlador.Sistema;
@@ -152,7 +154,6 @@ public class AltaTurno extends JFrame implements ActionListener
 			String nombre = p.getNombre();
 			String apellido = p.getApellido();
 			comboBoxPaciente.addItem(p.getApellido()+", "+p.getNombre());
-			//System.out.println(nombreApellido);
 		}
 		contentPane.add(comboBoxPaciente);
 		
@@ -176,11 +177,16 @@ public class AltaTurno extends JFrame implements ActionListener
 		btnAceptar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date date = dateChooser.getDate();
-				//int prueba = (int) hora.getSelectedItem();
-				date.setHours((int) hora.getSelectedItem());
-				date.setMinutes((int) minutos.getSelectedItem());
+				int horaTurno = (int) hora.getSelectedItem();
+				int minutoturno = (int) minutos.getSelectedItem();
+				//date.setHours((int) hora.getSelectedItem());
+				//date.setMinutes((int) minutos.getSelectedItem());
 				System.out.println("DATE CHOOSER "+date.toString());
+				System.out.println("Hora: "+hora.getSelectedItem());
+				System.out.println("Minutos: "+minutos.getSelectedItem());
 				
+				Turno turno = new Turno(date, horaTurno, minutoturno, null, comboBoxPaciente.getSelectedItem(), 
+						comboBoxProfesional.getSelectedItem(), null);
 				
 //				Paciente   paciente   = null;
 //				Odontologo odontologo = null;
