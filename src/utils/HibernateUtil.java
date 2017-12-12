@@ -88,4 +88,17 @@ public class HibernateUtil {
 		
 		session.close();
   }
+
+	public static void eliminarEntidad(Object entidad) {
+		Session session = getSessionFactory().openSession();
+	  	
+		session.beginTransaction();
+	
+		session.remove(entidad);
+		
+		session.getTransaction().commit();
+		
+		session.close();
+	}
+
 }

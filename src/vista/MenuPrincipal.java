@@ -56,6 +56,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 	 */
 	public MenuPrincipal() {
 		super();
+		inst = this;
 		initialize();
 	}
 

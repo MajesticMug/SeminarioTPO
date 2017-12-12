@@ -98,6 +98,7 @@ public class Sistema
 	}
 	
 	public void agregarPaciente(Paciente p){
+		PacienteDAO.getInstancia().save(p);
 		this.pacientes.add(p);
 	}
 	
@@ -105,6 +106,7 @@ public class Sistema
 		int index = 0;
 		while (index < this.pacientes.size()){
 			if (this.pacientes.get(index).getNroDocumento() == p.getNroDocumento()){
+				PacienteDAO.getInstancia().remove(p);
 				this.pacientes.remove(index);
 			}
 		}
@@ -137,6 +139,7 @@ public class Sistema
 	}
 	
 	public void agregarOdontologo (Odontologo o){
+		OdontologoDAO.getInstancia().save(o);
 		this.odontologos.add(o);
 	}
 	
@@ -190,15 +193,15 @@ public class Sistema
 	
 	// RECUPERAR TODOS LOS PACIENTES
 	public List<Paciente> recuperarPacientes(){
-		return UsuarioDAO.getInstancia().recuperarPacientes();
+		return this.pacientes;
 	}
 	
 	// RECUPERAR TODOS LOS ESPECIALISTAS
 	public List<Odontologo> recuperarOdontologos(){
-		return UsuarioDAO.getInstancia().recuperarOdonotologos();
+		return this.odontologos;
 	}
 	
 	public List<Radiologo> recuperarRadiologos(){
-		return UsuarioDAO.getInstancia().recuperarRadiologos();
+		return this.radiologos;
 	}
 }

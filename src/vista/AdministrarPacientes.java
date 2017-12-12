@@ -63,26 +63,17 @@ public class AdministrarPacientes extends JFrame {
 		lblPacientes.setBounds(10, 11, 190, 14);
 		contentPane.add(lblPacientes);
 		
-		JList list = new JList();
+		JList<Paciente> list = new JList<Paciente>();
 		list.setBounds(20, 36, 287, 179);
-		DefaultListModel<String> modeloList = new DefaultListModel();
-//		List<Paciente> listaPacientes = Sistema.getInstance().getPacientes();
-//		int i = 0;
-//		while (i < listaPacientes.size()){
-//			modeloList.addElement(listaPacientes.get(i).getNombre() +' '+ listaPacientes.get(i).getApellido());
-//		}
-		//modeloList.addElement("Paciente 1");
-		//modeloList.addElement("Paciente 2");
-		//modeloList.addElement("Paciente 3");
-		List<Paciente> pacientes = Sistema.getInstance().recuperarPacientes();
-		for(Paciente paciente:pacientes) {
-			String nombre = paciente.getNombre();
-			String apellido = paciente.getApellido();
-			String nombreApellido = apellido+", "+nombre;
-			modeloList.addElement(nombreApellido);
-			//System.out.println(nombreApellido);
+
+		DefaultListModel<Paciente> modeloList = new DefaultListModel<Paciente>();
+		
+		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
+			modeloList.addElement(p);
 		}
+		
 		list.setModel(modeloList);
+		
 		contentPane.add(list);
 		
 		JButton btnAdministrar = new JButton("Administrar");

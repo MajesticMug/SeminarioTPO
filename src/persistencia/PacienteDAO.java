@@ -18,5 +18,16 @@ public class PacienteDAO {
 	public List<Paciente> findAll() {
 		return HibernateUtil.getSessionFactory().openSession().createQuery("from Paciente").list();
 	}
+
+	public void save(Paciente p) {
+		HibernateUtil.guardarEntidad(p);
+	}
 	
+	public void update(Paciente p) {
+		HibernateUtil.actualizarEntidad(p);
+	}
+	
+	public void remove(Paciente p) {
+		HibernateUtil.eliminarEntidad(p);
+	}
 }

@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.awt.event.ActionEvent;
 
 public class Pacientes extends JFrame {
@@ -121,18 +122,12 @@ public class Pacientes extends JFrame {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				Paciente p = null;
-
-				p.setApellido(txtApellido.getText());
-				p.setApellido(txtNombre.getText());
-				p.setTipoDocumento(txtTipoDni.getText());
-				p.setNroDocumento( Integer.parseInt(txtNmero.getText()));
-				p.setDomicilio(txtDireccin.getText());
-				p.setTelefono(Integer.parseInt(txtTelfono.getText()));
-
+				Date fecha = new Date(new java.util.Date().getTime());
+				
+				Paciente p = new Paciente(null, 0, txtNombre.getText(), txtApellido.getText(), txtTipoDni.getText(), Integer.parseInt(txtNmero.getText()), txtDireccin.getText(), 
+						Integer.parseInt(txtTelfono.getText()), 'M', null, null, null, null);
+				
 				Sistema.getInstance().agregarPaciente(p);
-
 			}
 		});
 		btnAgregar.setBounds(322, 159, 89, 23);

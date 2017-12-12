@@ -50,6 +50,11 @@ public class Paciente extends Usuario
 		this.nroOsPaciente = nroOsPaciente;
 	}
 	
+	@Override
+	public String toString() {
+		return getNroDocumento() + " - " + getApellido() + ", " + getNombre();
+	}
+	
 	
 	public HistoriaClinica getHistoriaClinica()
 	{
