@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.List;
 
+import javax.persistence.*;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 @Entity
 public class PuntosMarcados
 {
-	@javax.persistence.Id
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
 	
