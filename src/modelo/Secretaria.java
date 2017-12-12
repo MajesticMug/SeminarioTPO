@@ -16,5 +16,5 @@ public class Secretaria extends Usuario
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public Secretaria() {};
 }

@@ -187,4 +187,18 @@ public class Sistema
 		return UsuarioDAO.getInstancia().validarUsuario(usuario, contrasenia);
 		
 	}
+	
+	// RECUPERAR TODOS LOS PACIENTES
+	public List<Paciente> recuperarPacientes(){
+		return UsuarioDAO.getInstancia().recuperarPacientes();
+	}
+	
+	// RECUPERAR TODOS LOS ESPECIALISTAS
+	public List<Odontologo> recuperarOdontologos(){
+		return UsuarioDAO.getInstancia().recuperarOdonotologos();
+	}
+	
+	public List<Radiologo> recuperarRadiologos(){
+		return UsuarioDAO.getInstancia().recuperarRadiologos();
+	}
 }

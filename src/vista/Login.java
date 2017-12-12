@@ -69,6 +69,8 @@ public class Login extends JFrame {
 					MenuPrincipal mp = MenuPrincipal.getInstance();
 					String usuario = txtUsuario.getText();
 					String contrasenia = txtContrasea.getText();
+					System.out.println("USER: "+txtUsuario);
+					System.out.println("PASS: "+txtContrasea);
 					boolean validar = Sistema.getInstance().validarUsuario(usuario, contrasenia);
 					if(validar) {
 						mp.setVisible(true);

@@ -71,9 +71,17 @@ public class AdministrarPacientes extends JFrame {
 //		while (i < listaPacientes.size()){
 //			modeloList.addElement(listaPacientes.get(i).getNombre() +' '+ listaPacientes.get(i).getApellido());
 //		}
-		modeloList.addElement("Paciente 1");
-		modeloList.addElement("Paciente 2");
-		modeloList.addElement("Paciente 3");
+		//modeloList.addElement("Paciente 1");
+		//modeloList.addElement("Paciente 2");
+		//modeloList.addElement("Paciente 3");
+		List<Paciente> pacientes = Sistema.getInstance().recuperarPacientes();
+		for(Paciente paciente:pacientes) {
+			String nombre = paciente.getNombre();
+			String apellido = paciente.getApellido();
+			String nombreApellido = apellido+", "+nombre;
+			modeloList.addElement(nombreApellido);
+			//System.out.println(nombreApellido);
+		}
 		list.setModel(modeloList);
 		contentPane.add(list);
 		

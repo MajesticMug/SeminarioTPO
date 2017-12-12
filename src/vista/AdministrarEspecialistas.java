@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.Sistema;
 import modelo.Odontologo;
+import modelo.Paciente;
+import modelo.Radiologo;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -70,9 +72,25 @@ public class AdministrarEspecialistas extends JFrame {
 //		while (i < listaEspecialistas.size()){
 //			modeloList.addElement(listaEspecialistas.get(i).getNombre() +' '+ listaEspecialistas.get(i).getApellido());
 //		}
-		modeloList.addElement("Especialista 1");
-		modeloList.addElement("Especialista 2");
-		modeloList.addElement("Especialista 3");
+		//modeloList.addElement("Especialista 1");
+		//modeloList.addElement("Especialista 2");
+		//modeloList.addElement("Especialista 3");
+		List<Odontologo> odontologos = Sistema.getInstance().recuperarOdontologos();
+		List<Radiologo> radiologos = Sistema.getInstance().recuperarRadiologos();
+		for(Odontologo o :odontologos) {
+			String tipo = o.getFuncion();
+			String apellido = o.getApellido();
+			String nombre = o.getNombre();
+			String tipoApellidoNombre = tipo+"   Nombre: "+apellido+", "+nombre;
+			modeloList.addElement(tipoApellidoNombre);
+		}
+		for(Radiologo r :radiologos) {
+			String tipo = r.getFuncion();
+			String apellido = r.getApellido();
+			String nombre = r.getNombre();
+			String tipoApellidoNombre = tipo+"   Nombre: "+apellido+", "+nombre;
+			modeloList.addElement(tipoApellidoNombre);
+		}
 		list.setModel(modeloList);
 		contentPane.add(list);
 		

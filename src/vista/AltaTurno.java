@@ -22,6 +22,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
+import java.util.List;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -128,10 +130,30 @@ public class AltaTurno extends JFrame implements ActionListener
 		
 		JComboBox comboBoxProfesional = new JComboBox();
 		comboBoxProfesional.setBounds(158, 48, 226, 22);
+		List<Odontologo> odontologos = Sistema.getInstance().recuperarOdontologos();
+		List<Radiologo> radiologos = Sistema.getInstance().recuperarRadiologos();
+		for(Odontologo o :odontologos) {
+			String apellido = o.getApellido();
+			String nombre = o.getNombre();
+			comboBoxProfesional.addItem(o.getApellido()+", "+o.getNombre());
+		}
+		for(Radiologo r :radiologos) {
+			String apellido = r.getApellido();
+			String nombre = r.getNombre();
+			comboBoxProfesional.addItem(r.getApellido()+", "+r.getNombre());
+		}
+		//comboBoxProfesional.addItem("Pepito");
 		contentPane.add(comboBoxProfesional);
 		
 		JComboBox comboBoxPaciente = new JComboBox();
 		comboBoxPaciente.setBounds(158, 83, 226, 22);
+		List<Paciente> pacientes = Sistema.getInstance().recuperarPacientes();
+		for(Paciente p:pacientes) {
+			String nombre = p.getNombre();
+			String apellido = p.getApellido();
+			comboBoxPaciente.addItem(p.getApellido()+", "+p.getNombre());
+			//System.out.println(nombreApellido);
+		}
 		contentPane.add(comboBoxPaciente);
 		
 		JButton btnAceptar_1 = new JButton("Aceptar");
