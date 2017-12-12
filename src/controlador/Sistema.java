@@ -10,6 +10,7 @@ import modelo.*;
 import persistencia.*;
 import utils.HibernateUtil;
 import vista.BuscarPersona;
+import vista.Turnos;
 
 public class Sistema
 {
@@ -30,6 +31,7 @@ public class Sistema
 		pacientes = PacienteDAO.getInstancia().findAll();
 		odontologos = OdontologoDAO.getInstancia().findAll();
 		radiologos = RadiologoDAO.getInstancia().findAll();
+		turnos = TurnosDAO.getInstancia().findAll();
 	}	
 
 	/*
@@ -169,6 +171,7 @@ public class Sistema
 	}
 	
 	public void agregarTurno(Turno t){
+		TurnosDAO.getInstancia().save(t);
 		this.turnos.add(t);
 	}
 	

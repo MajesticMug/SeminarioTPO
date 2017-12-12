@@ -12,11 +12,14 @@ import controlador.Sistema;
 import modelo.Odontologo;
 import modelo.Paciente;
 import modelo.Radiologo;
+import modelo.Turno;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.awt.event.ActionEvent;
@@ -60,6 +63,13 @@ public class Pacientes extends JFrame {
 	 * Create the frame.
 	 */
 	public Pacientes() {
+		
+		JComboBox<Paciente> comboPacientes = new JComboBox<Paciente>();
+		
+		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
+			comboPacientes.addItem(p);
+		}
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBounds(100, 100, 518, 304);

@@ -50,6 +50,10 @@ public abstract class Usuario
 		this.contrasenia=contrasenia;
 	}
 	
+	@Override
+	public String toString() {
+		return getNroDocumento() + " - " + getApellido() + ", " + getNombre();
+	}
 	
 	public String getUsuario() {
 		return usuario;

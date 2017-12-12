@@ -14,10 +14,7 @@ import com.toedter.calendar.DateUtil;
 import com.toedter.calendar.JDateChooser;
 
 import controlador.Sistema;
-import modelo.Odontologo;
-import modelo.Paciente;
-import modelo.Radiologo;
-import modelo.Turno;
+import modelo.*;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -36,6 +33,11 @@ public class AltaTurno extends JFrame implements ActionListener
 
 	private static AltaTurno inst = null;
 	private JDesktopPane contentPane;
+	private JComboBox<Usuario> comboBoxProfesional;
+	private JComboBox<Paciente> comboBoxPaciente;
+	private JDateChooser dateChooser;
+	private JComboBox<Integer> hora;
+	private JComboBox<Integer> minutos;
 
 	/**
 	 * Launch the application.
@@ -91,18 +93,18 @@ public class AltaTurno extends JFrame implements ActionListener
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JDateChooser dateChooser = new JDateChooser();
+		dateChooser = new JDateChooser();
 		Date date = new Date();
 		dateChooser.setDate(date);
 		dateChooser.setBounds(158, 126, 226, 20);
 		contentPane.add(dateChooser);
 		
-		JComboBox hora = new JComboBox();
+		hora = new JComboBox<Integer>();
 		hora.setModel(new DefaultComboBoxModel(new Integer[] {10, 11, 12, 13, 14, 15, 16, 17}));
 		hora.setBounds(158, 155, 115, 22);
 		contentPane.add(hora);
 		
-		JComboBox minutos = new JComboBox();
+		minutos = new JComboBox<Integer>();
 		minutos.setModel(new DefaultComboBoxModel(new Integer[] {0, 30}));
 		minutos.setBounds(158, 188, 115, 22);
 		contentPane.add(minutos);
@@ -132,31 +134,26 @@ public class AltaTurno extends JFrame implements ActionListener
 		lblMinuto.setBounds(43, 189, 105, 14);
 		contentPane.add(lblMinuto);
 		
-		JComboBox comboBoxProfesional = new JComboBox();
+		comboBoxProfesional = new JComboBox<Usuario>();
 		comboBoxProfesional.setBounds(158, 48, 226, 22);
-		List<Odontologo> odontologos = Sistema.getInstance().recuperarOdontologos();
-		List<Radiologo> radiologos = Sistema.getInstance().recuperarRadiologos();
-		for(Odontologo o :odontologos) {
-			String apellido = o.getApellido();
-			String nombre = o.getNombre();
-			comboBoxProfesional.addItem(o.getApellido()+", "+o.getNombre());
+		
+		for (Odontologo o : Sistema.getInstance().recuperarOdontologos()) {
+			comboBoxProfesional.addItem(o);
 		}
-		for(Radiologo r :radiologos) {
-			String apellido = r.getApellido();
-			String nombre = r.getNombre();
-			comboBoxProfesional.addItem(r.getApellido()+", "+r.getNombre());
+		for (Radiologo r : Sistema.getInstance().recuperarRadiologos()) {
+			comboBoxProfesional.addItem(r);
 		}
+		
 		//comboBoxProfesional.addItem("Pepito");
 		contentPane.add(comboBoxProfesional);
 		
-		JComboBox comboBoxPaciente = new JComboBox();
+		comboBoxPaciente = new JComboBox<Paciente>();
 		comboBoxPaciente.setBounds(158, 83, 226, 22);
-		List<Paciente> pacientes = Sistema.getInstance().recuperarPacientes();
-		for(Paciente p:pacientes) {
-			String nombre = p.getNombre();
-			String apellido = p.getApellido();
-			comboBoxPaciente.addItem(p.getApellido()+", "+p.getNombre());
+
+		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
+			comboBoxPaciente.addItem(p);
 		}
+		
 		contentPane.add(comboBoxPaciente);
 		
 		JButton btnAceptar_1 = new JButton("Aceptar");
@@ -200,20 +197,7 @@ public class AltaTurno extends JFrame implements ActionListener
 				else
 					JOptionPane.showMessageDialog(inst, "Error: el profesional seleccionado no es ni Odontologo ni Radiologo.");
 				
-				
-				
-//				Paciente   paciente   = null;
-//				Odontologo odontologo = null;
-//				Radiologo  radiologo  = null;
-//				
-//				Turno turno = new Turno((java.sql.Date) dateChooser.getDate(), 
-//						                dateChooser.getDate().getHours(),
-//						                dateChooser.getDate().getMinutes(),
-//						                false, 
-//						                paciente,
-//						                odontologo, 
-//						                radiologo);
-//				Sistema.getInstance().agregarTurno(turno);
+				Sistema.getInstance().agregarTurno(turno);
 			}
 		});
 	}
