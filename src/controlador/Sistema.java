@@ -80,11 +80,13 @@ public class Sistema
 	}
 //	Se convierte la visualización de turnos en el turno 
 	public Turno buscarTurnos (String turno){
-		turno = "31370003 - Juan Hernandez - 09/12/2012 - 12hs";
+//		FORMATO: turno = "31370003 - Juan Hernandez - 09/12/2012 - 12hs";
+		String parts[] = turno.split(" - ");
 		
 		int i = 0;
 		while (i<this.turnos.size()){
-			if (this.turnos.get(i).getPaciente().getApellido() == "Hernandez"){
+			String dni = Integer.toString(this.turnos.get(i).getPaciente().getNroDocumento());
+			if ( dni == parts[0]){
 				return this.turnos.get(i);
 			}
 			i++;
@@ -131,8 +133,13 @@ public class Sistema
 			if (this.odontologos.get(index).getNroDocumento() == odont.getNroDocumento()){
 				this.odontologos.remove(index);
 			}
+			index++;
 		}
 		
+	}
+	
+	public void agregarTurno(Turno t){
+		this.turnos.add(t);
 	}
 	
 	public void eliminarTurno (Turno turno){
@@ -142,6 +149,7 @@ public class Sistema
 			    && this.turnos.get(index).getHoraTurno()  == turno.getHoraTurno()){
 				this.turnos.remove(index);
 			}
+			index++;
 		}
 		
 	}

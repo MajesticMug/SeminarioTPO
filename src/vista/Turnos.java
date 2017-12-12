@@ -94,6 +94,7 @@ public class Turnos extends JFrame implements ActionListener {
 		panelBuscar.add(btnBuscar);
 
 		//		--------------------------------------------
+//		FORMATO: 31370003 - Juan Hernandez - 09/12/2012 - 12hs
 		JList list = new JList();
 		list.setBounds(20, 42, 280, 128);
 		DefaultListModel<String> modeloList = new DefaultListModel();
@@ -101,9 +102,12 @@ public class Turnos extends JFrame implements ActionListener {
 //		int i = 0;
 //		while (i < listaTurno.size()){
 //			if (dateChooser.getDate() == listaTurno.get(i).getFechaTurno()){
-//			modeloList.addElement(listaTurno.get(i).getPaciente().getNombre() 
+//			modeloList.addElement(listaTurno.get(i).getPaciente().getNroDocumento()
+//								+ " - "
+//					            + listaTurno.get(i).getPaciente().getNombre() 
 //					            + ' ' + listaTurno.get(i).getPaciente().getApellido()
-//					            + '-' + listaTurno.get(i).getHoraTurno());
+//					            + " - " + listaTurno.get(i).getFechaTurno()
+//					            + " - " + listaTurno.get(i).getHoraTurno());
 //			}
 //		}
 		modeloList.addElement("Turno 1");

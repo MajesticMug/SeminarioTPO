@@ -10,6 +10,13 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
+
+import controlador.Sistema;
+import modelo.Odontologo;
+import modelo.Paciente;
+import modelo.Radiologo;
+import modelo.Turno;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -139,6 +146,7 @@ public class AltaTurno extends JFrame implements ActionListener
 		});
 		btnVolver.setBounds(372, 239, 89, 23);
 		contentPane.add(btnVolver);
+		
 		btnAceptar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Date date = dateChooser.getDate();
@@ -146,6 +154,20 @@ public class AltaTurno extends JFrame implements ActionListener
 				date.setHours((int) hora.getSelectedItem());
 				date.setMinutes((int) minutos.getSelectedItem());
 				System.out.println("DATE CHOOSER "+date.toString());
+				
+				
+//				Paciente   paciente   = null;
+//				Odontologo odontologo = null;
+//				Radiologo  radiologo  = null;
+//				
+//				Turno turno = new Turno((java.sql.Date) dateChooser.getDate(), 
+//						                dateChooser.getDate().getHours(),
+//						                dateChooser.getDate().getMinutes(),
+//						                false, 
+//						                paciente,
+//						                odontologo, 
+//						                radiologo);
+//				Sistema.getInstance().agregarTurno(turno);
 			}
 		});
 	}
