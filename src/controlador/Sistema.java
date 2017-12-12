@@ -12,9 +12,10 @@ import vista.BuscarPersona;
 
 public class Sistema
 {
-	private List<Paciente> pacientes;
+	private List<Paciente>   pacientes;
 	private List<Odontologo> odontologos;
-	private List<Radiologo> radiologos;
+	private List<Radiologo>  radiologos;
+	private List<Turno>      turnos;
 	private static Sistema inst = null;
 	
 	public static Sistema getInstance(){
@@ -54,6 +55,14 @@ public class Sistema
 
 	public List<Radiologo> getRadiologos() {
 		return radiologos;
+	}
+
+	public List<Turno> getTurnos() {
+		return turnos;
+	}
+
+	public void setTurnos(List<Turno> turnos) {
+		this.turnos = turnos;
 	}
 
 	public Paciente buscarPaciente (int dni){

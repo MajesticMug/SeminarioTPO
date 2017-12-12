@@ -8,6 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import com.toedter.calendar.JDateChooser;
+
+import controlador.Sistema;
+import modelo.Paciente;
+import modelo.Turno;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextPane;
@@ -20,6 +25,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class Turnos extends JFrame implements ActionListener {
@@ -90,6 +96,15 @@ public class Turnos extends JFrame implements ActionListener {
 		JList list = new JList();
 		list.setBounds(20, 42, 280, 128);
 		DefaultListModel<String> modeloList = new DefaultListModel();
+//		List<Turno> listaTurno = Sistema.getInstance().getTurnos();
+//		int i = 0;
+//		while (i < listaTurno.size()){
+//			
+//			modeloList.addElement(listaTurno.get(i).getPaciente().getNombre() 
+//					            + ' ' + listaTurno.get(i).getPaciente().getApellido()
+//					            + '-' + listaTurno.get(i).getHoraTurno());
+//			
+//		}
 		modeloList.addElement("Turno 1");
 		modeloList.addElement("Turno 2");
 		modeloList.addElement("Turno 3");

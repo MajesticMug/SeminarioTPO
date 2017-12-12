@@ -6,11 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+import modelo.Paciente;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class AdministrarPacientes extends JFrame {
@@ -61,6 +66,11 @@ public class AdministrarPacientes extends JFrame {
 		JList list = new JList();
 		list.setBounds(20, 36, 287, 179);
 		DefaultListModel<String> modeloList = new DefaultListModel();
+//		List<Paciente> listaPacientes = Sistema.getInstance().getPacientes();
+//		int i = 0;
+//		while (i < listaPacientes.size()){
+//			modeloList.addElement(listaPacientes.get(i).getNombre() +' '+ listaPacientes.get(i).getApellido());
+//		}
 		modeloList.addElement("Paciente 1");
 		modeloList.addElement("Paciente 2");
 		modeloList.addElement("Paciente 3");
