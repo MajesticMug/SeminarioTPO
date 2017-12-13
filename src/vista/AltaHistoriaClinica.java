@@ -16,6 +16,7 @@ import modelo.Radiografia;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
@@ -74,36 +75,19 @@ public class AltaHistoriaClinica extends JFrame {
 		btnVolver.setBounds(403, 232, 89, 23);
 		contentPane.add(btnVolver);
 		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String observaciones = null;
-				Paciente paciente = null;
-				List<Radiografia> radiografias = null;
-				List<ConsentimientoTratamiento> consentimientosTratamiento = null;
-				List<PlanTratamiento> planesTratamiento = null;
-				List<FichaOdontologica> fichasOdontologicas = null;
-			
-				modelo.HistoriaClinica hist = new modelo.HistoriaClinica(observaciones, paciente, radiografias, consentimientosTratamiento, planesTratamiento, fichasOdontologicas);
-				
-				if(e.getSource()==btnAceptar){
-					Sistema.getInstance().agregarHistoriaClinica(hist);
-				}
-			}
-		});
-		btnAceptar.setBounds(304, 232, 89, 23);
-		contentPane.add(btnAceptar);
+		
 		
 		JLabel lblNuevaHistoriaClnica = new JLabel("Nueva Historia Cl\u00EDnica");
 		lblNuevaHistoriaClnica.setBounds(10, 11, 237, 14);
 		contentPane.add(lblNuevaHistoriaClnica);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox comboBoxPaciente = new JComboBox();
 		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
-			comboBox.addItem(p);
+			comboBoxPaciente.addItem(p);
 		}
-		comboBox.setBounds(144, 36, 183, 23);
-		contentPane.add(comboBox);
+		Paciente paciente = (Paciente) comboBoxPaciente.getSelectedItem();
+		comboBoxPaciente.setBounds(144, 36, 183, 23);
+		contentPane.add(comboBoxPaciente);
 		
 		JLabel lblPaciente = new JLabel("Paciente");
 		lblPaciente.setBounds(20, 36, 114, 14);
@@ -139,5 +123,26 @@ public class AltaHistoriaClinica extends JFrame {
 		JButton btnFichaOdontolgica = new JButton("Ficha Odontol\u00F3gica");
 		btnFichaOdontolgica.setBounds(194, 103, 168, 23);
 		contentPane.add(btnFichaOdontolgica);
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String observaciones = null;
+				//Paciente paciente = null;
+				List<Radiografia> radiografias = null;
+				List<ConsentimientoTratamiento> consentimientosTratamiento = null;
+				List<PlanTratamiento> planesTratamiento = null;
+				List<FichaOdontologica> fichasOdontologicas = null;
+				
+				modelo.HistoriaClinica hist = new modelo.HistoriaClinica(observaciones, paciente, radiografias, consentimientosTratamiento, planesTratamiento, fichasOdontologicas);
+				
+				if(e.getSource()==btnAceptar){
+					Sistema.getInstance().agregarHistoriaClinica(hist);
+					JOptionPane.showMessageDialog(inst, "Historia clínica creada.");
+				}
+			}
+		});
+		btnAceptar.setBounds(304, 232, 89, 23);
+		contentPane.add(btnAceptar);
 	}
 }

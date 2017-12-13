@@ -3,11 +3,13 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.Sistema;
+import modelo.Paciente;
 
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -60,13 +62,22 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		lblHistoriasClnicas.setBounds(10, 11, 173, 14);
 		contentPane.add(lblHistoriasClnicas);
 		
-		JList list = new JList();
+		JList<modelo.HistoriaClinica> list = new JList<modelo.HistoriaClinica>();
 		list.setBounds(20, 36, 297, 167);
+		/*
 		DefaultListModel<String> modeloList = new DefaultListModel();
 		modeloList.addElement("Historia Clinica 1");
 		modeloList.addElement("Historia Clinica 2");
 		modeloList.addElement("Historia Clinica 3");
+		*/
+		DefaultListModel<modelo.HistoriaClinica> modeloList = new DefaultListModel<modelo.HistoriaClinica>();
+		
+		for (modelo.HistoriaClinica hc : Sistema.getInstance().recuperarHistoriasClinicas()) {
+			modeloList.addElement(hc);
+		}
+		
 		list.setModel(modeloList);
+		
 		contentPane.add(list);
 		
 		JButton btnSeleccionar = new JButton("Seleccionar");

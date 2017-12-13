@@ -250,4 +250,8 @@ public class Sistema
 		FichasOdontologicasDAO.getInstancia().save(ficha);
 		getFichasOdontologicas().add(ficha);		
 	}
+	
+	public List<HistoriaClinica> recuperarHistoriasClinicas(){
+		return this.historiasClinicas;
+	}
 }
