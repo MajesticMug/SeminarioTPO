@@ -107,7 +107,9 @@ public class Sistema
 		return turnoNull;
 		
 	}
-	
+	public void agregarHistoriaClinica(){
+		
+	}
 	public void agregarPaciente(Paciente p){
 		PacienteDAO.getInstancia().save(p);
 		this.pacientes.add(p);

@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
@@ -93,6 +96,23 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		});
 		btnVolver.setBounds(293, 228, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JButton btnCrear = new JButton("Crear");
+		btnCrear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnCrear){
+					AltaHistoriaClinica mp = AltaHistoriaClinica.getInstance();
+					mp.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
+		btnCrear.setBounds(356, 49, 89, 23);
+		contentPane.add(btnCrear);
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(356, 88, 89, 23);
+		contentPane.add(btnEliminar);
 	}
 
 	@Override
@@ -100,5 +120,4 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
