@@ -96,25 +96,6 @@ public class Turnos extends JFrame implements ActionListener {
 		contentPane.add(panelBuscar);
 		panelBuscar.setLayout(null);
 
-		btnBuscar = new JButton("Buscar");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-//				contentPane.remove(list);
-//				List<Turno> turnos = Sistema.getInstance().getTurnos();
-//				DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
-//				for(Turno t : turnos) {
-//					if (t.getFechaTurno() == dateChooser.getDate()){
-//					modeloList.addElement(t);
-//					}
-//				}
-//
-//				list.setModel(modeloList);
-//				contentPane.add(list);
-			}
-		});
-		btnBuscar.setBounds(0, 47, 76, 23);
-		panelBuscar.add(btnBuscar);
-
 		//		--------------------------------------------
 		//		FORMATO: 31370003 - Juan Hernandez - 09/12/2012 - 12hs
 		list = new JList<Turno>();
@@ -131,6 +112,39 @@ public class Turnos extends JFrame implements ActionListener {
 		list.setModel(modeloList);
 		contentPane.add(list);
 
+		
+		// BUSCAR FECHAS SELECCIONADAS
+		
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.remove(list);
+				List<Turno> turnos = Sistema.getInstance().recuperarTurnos();
+				DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
+				for(Turno t : turnos) {
+					System.out.println("dia recuperado"+t.getFechaTurno());
+					System.out.println("dia buscado"+dateChooser.getDate());
+					//System.out.println(dateAux);
+					if (t.getFechaTurno().getDate() == dateChooser.getDate().getDate() 
+							&& t.getFechaTurno().getMonth()== dateChooser.getDate().getMonth() 
+							&& t.getFechaTurno().getYear()== dateChooser.getDate().getYear()){
+					modeloList.addElement(t);
+					}
+				}
+
+				list.setModel(modeloList);
+				contentPane.add(list);
+			}
+		});
+		btnBuscar.setBounds(0, 47, 76, 23);
+		panelBuscar.add(btnBuscar);
+		
+		
+		
+		
+		
+		
+		
 		//		JScrollPane barra = new JScrollPane(list); 
 		//		barra.getViewport().add(list); 
 		//		barra.setBounds(307, 42, 17, 128);
