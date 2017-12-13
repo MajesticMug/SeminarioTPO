@@ -19,6 +19,7 @@ public class Sistema
 	private List<Radiologo>  radiologos;
 	private List<Turno>      turnos;
 	private List<FichaOdontologica> fichasOdontologicas;
+	private List<HistoriaClinica> historiasClinicas;
 	
 	private static Sistema inst = null;
 	
@@ -73,6 +74,16 @@ public class Sistema
 	public void setTurnos(List<Turno> turnos) {
 		this.turnos = turnos;
 	}
+	
+	
+
+	public List<HistoriaClinica> getHistoriasClinicas() {
+		return historiasClinicas;
+	}
+
+	public void setHistoriasClinicas(List<HistoriaClinica> historiasClinicas) {
+		this.historiasClinicas = historiasClinicas;
+	}
 
 	public Paciente buscarPaciente (int dni){
 		Paciente pac =null;
@@ -107,8 +118,8 @@ public class Sistema
 		return turnoNull;
 		
 	}
-	public void agregarHistoriaClinica(){
-		
+	public void agregarHistoriaClinica(HistoriaClinica h){
+		this.historiasClinicas.add(h);
 	}
 	public void agregarPaciente(Paciente p){
 		PacienteDAO.getInstancia().save(p);

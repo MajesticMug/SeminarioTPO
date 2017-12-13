@@ -8,12 +8,18 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.Sistema;
+import modelo.ConsentimientoTratamiento;
+import modelo.FichaOdontologica;
+import modelo.Paciente;
+import modelo.PlanTratamiento;
+import modelo.Radiografia;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class AltaHistoriaClinica extends JFrame {
@@ -70,9 +76,17 @@ public class AltaHistoriaClinica extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String observaciones = null;
+				Paciente paciente = null;
+				List<Radiografia> radiografias = null;
+				List<ConsentimientoTratamiento> consentimientosTratamiento = null;
+				List<PlanTratamiento> planesTratamiento = null;
+				List<FichaOdontologica> fichasOdontologicas = null;
+			
+				modelo.HistoriaClinica hist = new modelo.HistoriaClinica(observaciones, paciente, radiografias, consentimientosTratamiento, planesTratamiento, fichasOdontologicas);
 				
 				if(e.getSource()==btnAceptar){
-					Sistema.getInstance().agregarHistoriaClinica();
+					Sistema.getInstance().agregarHistoriaClinica(hist);
 				}
 			}
 		});
@@ -84,7 +98,10 @@ public class AltaHistoriaClinica extends JFrame {
 		contentPane.add(lblNuevaHistoriaClnica);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(144, 36, 183, 14);
+		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
+			comboBox.addItem(p);
+		}
+		comboBox.setBounds(144, 36, 183, 23);
 		contentPane.add(comboBox);
 		
 		JLabel lblPaciente = new JLabel("Paciente");
