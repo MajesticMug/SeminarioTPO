@@ -59,6 +59,10 @@ public class HistoriaClinica
 		this.planesTratamiento = planesTratamiento;
 		this.fichasOdontologicas = fichasOdontologicas;
 	}
+	
+	public String toString() {
+		return getNroHistoriaClinica() + " - " + getPaciente().getApellido() + ", " + getPaciente().getNombre();
+	}
 
 	
 	public int getNroHistoriaClinica()
