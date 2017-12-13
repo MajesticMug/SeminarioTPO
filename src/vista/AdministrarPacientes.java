@@ -54,6 +54,7 @@ public class AdministrarPacientes extends JFrame {
 	 * Create the frame.
 	 */
 	public AdministrarPacientes() {
+		setTitle("Pacientes");
 		inst = this;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

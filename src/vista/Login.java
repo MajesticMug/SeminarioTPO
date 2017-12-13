@@ -52,6 +52,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setTitle("Centro Odontol\u00F3gico Integral");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		setBounds(100, 100, 450, 300);
 		setBounds(100, 100, 518, 304);
@@ -106,7 +107,7 @@ public class Login extends JFrame {
 
 		JPanelConFondo panelImagen = new JPanelConFondo();
 		panelImagen.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Login.jpg")));
-		panelImagen.setBounds(269, 48, 89, 79);
+		panelImagen.setBounds(305, 48, 89, 79);
 		panelImagen.setLayout(null);
 		contentPane.add(panelImagen);
 		
@@ -119,11 +120,11 @@ public class Login extends JFrame {
 		contentPane.add(separator);
 		
 		JCheckBox chckbxOlvideMiContrasea = new JCheckBox("Olvide mi contrase\u00F1a");
-		chckbxOlvideMiContrasea.setBounds(70, 121, 189, 23);
+		chckbxOlvideMiContrasea.setBounds(70, 130, 189, 23);
 		contentPane.add(chckbxOlvideMiContrasea);
 		 
 		JCheckBox chckbxRegistrarNuevoUsuario = new JCheckBox("Registrar Nuevo Usuario");
-		chckbxRegistrarNuevoUsuario.setBounds(70, 139, 189, 23);
+		chckbxRegistrarNuevoUsuario.setBounds(70, 155, 189, 23);
 		contentPane.add(chckbxRegistrarNuevoUsuario);
 		
 	}

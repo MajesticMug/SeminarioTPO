@@ -53,6 +53,7 @@ public class AdministrarEspecialistas extends JFrame {
 	 * Create the frame.
 	 */
 	public AdministrarEspecialistas() {
+		setTitle("Especialistas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

@@ -63,6 +63,7 @@ public class Pacientes extends JFrame {
 	 * Create the frame.
 	 */
 	public Pacientes() {
+		setTitle("Administrar Pacientes");
 		
 		JComboBox<Paciente> comboPacientes = new JComboBox<Paciente>();
 		
@@ -78,7 +79,7 @@ public class Pacientes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblAgregarNuevoPaciente = new JLabel("Agregar Nuevo Paciente");
+		JLabel lblAgregarNuevoPaciente = new JLabel("Paciente");
 		lblAgregarNuevoPaciente.setBounds(10, 11, 214, 14);
 		contentPane.add(lblAgregarNuevoPaciente);
 

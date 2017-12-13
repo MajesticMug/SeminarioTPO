@@ -46,6 +46,7 @@ public class Pendientes extends JFrame {
 	 * Create the frame.
 	 */
 	public Pendientes() {
+		setTitle("Pendientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
@@ -55,7 +56,7 @@ public class Pendientes extends JFrame {
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setToolTipText("Trabajos Pendientes");
-		textPane.setBounds(10, 25, 336, 202);
+		textPane.setBounds(10, 25, 482, 202);
 		contentPane.add(textPane);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -69,12 +70,16 @@ public class Pendientes extends JFrame {
 				}
 			}
 		});
-		btnVolver.setBounds(319, 239, 89, 23);
+		btnVolver.setBounds(403, 238, 89, 23);
 		contentPane.add(btnVolver);
 		
 		JLabel lblPendientesDelPaciente = new JLabel("Pendientes del Paciente");
 		lblPendientesDelPaciente.setBounds(0, 0, 147, 14);
 		contentPane.add(lblPendientesDelPaciente);
+		
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setBounds(300, 238, 89, 23);
+		contentPane.add(btnGuardar);
 	}
 
 }

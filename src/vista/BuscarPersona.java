@@ -45,6 +45,7 @@ public class BuscarPersona extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public BuscarPersona() {
+		setTitle("Personas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();

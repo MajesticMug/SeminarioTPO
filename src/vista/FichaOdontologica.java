@@ -65,6 +65,7 @@ public class FichaOdontologica extends JFrame {
 	 */
 	public FichaOdontologica(Paciente paciente) throws IOException
 	{
+		setTitle("Ficha Odontol\u00F3gica");
 		this.paciente = paciente;
 
 		initialize();

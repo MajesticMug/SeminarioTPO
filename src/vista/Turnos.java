@@ -39,8 +39,8 @@ public class Turnos extends JFrame implements ActionListener {
 	private JButton btnInfo;
 	private JButton btnSeleccionar;
 	private JButton btnVolver;
-    private static Turnos inst=null;
-    private JList<Turno> list;
+	private static Turnos inst=null;
+	private JList<Turno> list;
 
 	/**
 	 * Launch the application.
@@ -68,8 +68,9 @@ public class Turnos extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Turnos() {
+		setTitle("Turnos");
 		inst = this;
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();
@@ -96,29 +97,44 @@ public class Turnos extends JFrame implements ActionListener {
 		panelBuscar.setLayout(null);
 
 		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				contentPane.remove(list);
+//				List<Turno> turnos = Sistema.getInstance().getTurnos();
+//				DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
+//				for(Turno t : turnos) {
+//					if (t.getFechaTurno() == dateChooser.getDate()){
+//					modeloList.addElement(t);
+//					}
+//				}
+//
+//				list.setModel(modeloList);
+//				contentPane.add(list);
+			}
+		});
 		btnBuscar.setBounds(0, 47, 76, 23);
 		panelBuscar.add(btnBuscar);
 
 		//		--------------------------------------------
-//		FORMATO: 31370003 - Juan Hernandez - 09/12/2012 - 12hs
+		//		FORMATO: 31370003 - Juan Hernandez - 09/12/2012 - 12hs
 		list = new JList<Turno>();
 		list.setBounds(20, 42, 280, 128);
-		
+
 		DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
-		
+
 		List<Turno> turnos = Sistema.getInstance().getTurnos();
-		
+
 		for(Turno t : turnos) {
 			modeloList.addElement(t);
 		}
-		
+
 		list.setModel(modeloList);
 		contentPane.add(list);
 
-//		JScrollPane barra = new JScrollPane(list); 
-//		barra.getViewport().add(list); 
-//		barra.setBounds(307, 42, 17, 128);
-//		contentPane.add(barra);
+		//		JScrollPane barra = new JScrollPane(list); 
+		//		barra.getViewport().add(list); 
+		//		barra.setBounds(307, 42, 17, 128);
+		//		contentPane.add(barra);
 		//		--------------------------------------------
 		//		Panel para agregar Turno
 		JPanelConFondo panelAgregar = new JPanelConFondo();
@@ -133,7 +149,7 @@ public class Turnos extends JFrame implements ActionListener {
 					AltaTurno o = AltaTurno.getInstance();
 					o.setVisible(true);
 					inst.setVisible(false);
-					
+
 					o.setVistaTurnos(inst);
 				}
 			}
@@ -151,15 +167,15 @@ public class Turnos extends JFrame implements ActionListener {
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Turno t = list.getSelectedValue();
-				
+
 				Sistema.getInstance().eliminarTurno(t);
-				
+
 				DefaultListModel model = (DefaultListModel) list.getModel();
 				int selectedIndex = list.getSelectedIndex();
 				if (selectedIndex != -1) {
-				    model.remove(selectedIndex);
+					model.remove(selectedIndex);
 				}
-				
+
 			}
 		});
 		btnModificar.setBounds(345, 133, 89, 23);
@@ -180,16 +196,16 @@ public class Turnos extends JFrame implements ActionListener {
 					mp.setVisible(true);
 					inst.setVisible(false);
 				}
-				
+
 			}
 		});
 		btnInfo.setBounds(0, 47, 89, 23);
 		panelInfo.add(btnInfo);
-		
+
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.setBounds(226, 228, 110, 23);
 		contentPane.add(btnSeleccionar);
-		
+
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -207,43 +223,43 @@ public class Turnos extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
 
-//		if(e.getSource()==btnAgregarTurno){
-//			AltaTurno o = AltaTurno.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
-//		if(e.getSource()==btnBuscar){
-//			FrameOdontograma o = FrameOdontograma.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
-//		if(e.getSource()==btnModificar){
-//			FrameOdontograma o = FrameOdontograma.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
-//		if(e.getSource()==btnInfo){
-//			FrameOdontograma o = FrameOdontograma.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
-//		if(e.getSource()==btnSeleccionar){
-//			FrameOdontograma o = FrameOdontograma.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
-//		if(e.getSource()==btnVolver){
-//			FrameOdontograma o = FrameOdontograma.getInstance();
-//			o.setVisible(true);
-//			this.setVisible(false);
-//		}
+
+		//		if(e.getSource()==btnAgregarTurno){
+		//			AltaTurno o = AltaTurno.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
+		//		if(e.getSource()==btnBuscar){
+		//			FrameOdontograma o = FrameOdontograma.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
+		//		if(e.getSource()==btnModificar){
+		//			FrameOdontograma o = FrameOdontograma.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
+		//		if(e.getSource()==btnInfo){
+		//			FrameOdontograma o = FrameOdontograma.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
+		//		if(e.getSource()==btnSeleccionar){
+		//			FrameOdontograma o = FrameOdontograma.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
+		//		if(e.getSource()==btnVolver){
+		//			FrameOdontograma o = FrameOdontograma.getInstance();
+		//			o.setVisible(true);
+		//			this.setVisible(false);
+		//		}
 	}
 
 	public void agregarTurnoCreado(Turno t) {
 		DefaultListModel<Turno> model = (DefaultListModel<Turno>)list.getModel();
-		
+
 		model.addElement(t);
 	}
 }

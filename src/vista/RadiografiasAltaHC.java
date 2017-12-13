@@ -18,11 +18,11 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
 
-public class Radiografias extends JFrame {
+public class RadiografiasAltaHC extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtPaciente;
-	private static Radiografias inst = null;
+	private static RadiografiasAltaHC inst = null;
 	/**
 	 * Launch the application.
 	 */
@@ -30,7 +30,7 @@ public class Radiografias extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Radiografias frame = new Radiografias();
+					RadiografiasAltaHC frame = new RadiografiasAltaHC();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,9 +39,9 @@ public class Radiografias extends JFrame {
 		});
 	}
 
-	public static Radiografias getInstance(){
+	public static RadiografiasAltaHC getInstance(){
 		if(inst == null){
-			inst = new Radiografias();
+			inst = new RadiografiasAltaHC();
 		}
 		return inst;
 	}
@@ -49,7 +49,7 @@ public class Radiografias extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Radiografias() {
+	public RadiografiasAltaHC() {
 		setTitle("Radiograf\u00EDas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
@@ -76,6 +76,7 @@ public class Radiografias extends JFrame {
 		modeloList.addElement("/resources/img/Radiografias2.jpg");
 		modeloList.addElement("/resources/img/Radiografias3.jpg");
 		modeloList.addElement("/resources/img/Radiografias4.jpg");
+		
 		list.setModel(modeloList);
 		contentPane.add(list);
 
@@ -94,6 +95,7 @@ public class Radiografias extends JFrame {
 				//Se asigna mismo nombre al txt
 				dire  = abre.getPath();
 				System.out.println(dire);
+				
 			}
 		});
 		btnAgregar.setBounds(111, 228, 89, 23);
@@ -112,7 +114,7 @@ public class Radiografias extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					MenuPrincipal mp = MenuPrincipal.getInstance();
+					AltaHistoriaClinica mp = AltaHistoriaClinica.getInstance();
 					mp.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -126,6 +128,7 @@ public class Radiografias extends JFrame {
 		panelRadiografia.setBounds(260, 51, 164, 100);
 		contentPane.add(panelRadiografia);
 		panelRadiografia.setLayout(null); 
+		
 
 		JButton btnRefresh = new JButton("Visualizar");
 		btnRefresh.addActionListener(new ActionListener() {

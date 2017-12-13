@@ -45,6 +45,7 @@ public class InfoMenuPpal extends JFrame {
 	 * Create the frame.
 	 */
 	public InfoMenuPpal() {
+		setTitle("Informaci\u00F3n de Sistema");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();

@@ -52,6 +52,7 @@ public class AltaHistoriaClinica extends JFrame {
 	 * Create the frame.
 	 */
 	public AltaHistoriaClinica() {
+		setTitle("Alta de Historia Cl\u00EDnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
@@ -114,6 +115,16 @@ public class AltaHistoriaClinica extends JFrame {
 		contentPane.add(textPane);
 		
 		JButton btnRadiografas = new JButton("Radiograf\u00EDas");
+		btnRadiografas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(e.getSource()==btnRadiografas){
+					RadiografiasAltaHC mp = RadiografiasAltaHC.getInstance();
+					mp.setVisible(true);
+					inst.setVisible(false);
+				}
+			}
+		});
 		btnRadiografas.setBounds(10, 73, 114, 23);
 		contentPane.add(btnRadiografas);
 		

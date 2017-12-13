@@ -60,6 +60,7 @@ public class Especialistas extends JFrame {
 	 * Create the frame.
 	 */
 	public Especialistas() {
+		setTitle("Administrar Especialistas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBounds(100, 100, 518, 304);
@@ -68,7 +69,7 @@ public class Especialistas extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblAgregarNuevoPaciente = new JLabel("Agregar Nuevo Especialista");
+		JLabel lblAgregarNuevoPaciente = new JLabel("Especialista");
 		lblAgregarNuevoPaciente.setBounds(10, 11, 214, 14);
 		contentPane.add(lblAgregarNuevoPaciente);
 

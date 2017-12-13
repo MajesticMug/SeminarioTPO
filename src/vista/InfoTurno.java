@@ -43,8 +43,9 @@ public class InfoTurno extends JFrame {
 	 * Create the frame.
 	 */
 	public InfoTurno() {
+		setTitle("Informaci\u00F3n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

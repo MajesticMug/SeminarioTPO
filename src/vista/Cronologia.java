@@ -44,6 +44,7 @@ public class Cronologia extends JFrame {
 	 * Create the frame.
 	 */
 	public Cronologia() {
+		setTitle("Cronolog\u00EDa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
@@ -61,7 +62,7 @@ public class Cronologia extends JFrame {
 		
 		JTextPane textPane = new JTextPane();
 		textPane.setToolTipText("Cronolog\u00EDa\r\n");
-		textPane.setBounds(10, 25, 355, 205);
+		textPane.setBounds(10, 25, 482, 205);
 		contentPane.add(textPane);
 		
 		JButton btnVolver = new JButton("Volver");
@@ -75,8 +76,12 @@ public class Cronologia extends JFrame {
 				
 			}
 		});
-		btnVolver.setBounds(335, 241, 89, 23);
+		btnVolver.setBounds(403, 241, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setBounds(304, 241, 89, 23);
+		contentPane.add(btnGuardar);
 	}
 
 }

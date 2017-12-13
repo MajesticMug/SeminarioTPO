@@ -61,6 +61,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public HistoriaClinica() {
+		setTitle("Historia Cl\u00EDnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();

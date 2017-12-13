@@ -9,9 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
 public class Fotos extends JFrame {
 
@@ -45,6 +50,7 @@ public class Fotos extends JFrame {
 	 * Create the frame.
 	 */
 	public Fotos() {
+		setTitle("Fotos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
@@ -67,18 +73,8 @@ public class Fotos extends JFrame {
 		
 		JPanelConFondo panel = new JPanelConFondo();
 		panel.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/fotoBocaPaciente1.jpg")));
-		panel.setBounds(10, 45, 124, 82);
+		panel.setBounds(335, 61, 145, 102);
 		contentPane.add(panel);
-		
-		JPanelConFondo panel_1 = new JPanelConFondo();
-		panel_1.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/fotoBocaPaciente2.jpg")));
-		panel_1.setBounds(144, 45, 151, 77);
-		contentPane.add(panel_1);
-		
-		JPanelConFondo panel_2 = new JPanelConFondo();
-		panel_2.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/fotoBocaPaciente3.jpg")));
-		panel_2.setBounds(10, 138, 141, 93);
-		contentPane.add(panel_2);
 
 		
 		JButton btnVolver = new JButton("Volver");
@@ -95,8 +91,45 @@ public class Fotos extends JFrame {
 		contentPane.add(btnVolver);
 		
 		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(335, 194, 89, 23);
-		contentPane.add(btnAgregar);
-	}
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser;
+				String dire = null;
 
+				/*Creamos el objeto*/
+				fileChooser=new JFileChooser();
+				/*llamamos el metodo que permite cargar la ventana*/
+				fileChooser.showOpenDialog(fileChooser);
+				/*abrimos el archivo seleccionado*/ 			
+				File abre = fileChooser.getSelectedFile();
+				//Se asigna mismo nombre al txt
+				dire  = abre.getPath();
+				System.out.println(dire);
+			}
+		});
+		btnAgregar.setBounds(244, 228, 89, 23);
+		
+		
+		contentPane.add(btnAgregar);
+
+		JList list = new JList();
+		DefaultListModel<String> modeloList = new DefaultListModel();
+		modeloList.addElement("/resources/img/fotoBocaPaciente1.jpg");
+		modeloList.addElement("/resources/img/fotoBocaPaciente2.jpg");
+		modeloList.addElement("/resources/img/fotoBocaPaciente3.jpg");
+		list.setModel(modeloList);
+		list.setBounds(10, 47, 307, 166);
+		contentPane.add(list);
+		
+		JButton btnActualizar = new JButton("Visualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String selected = (String) list.getSelectedValue();
+				panel.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource(selected)));
+			}
+		});
+		btnActualizar.setBounds(355, 174, 100, 23);
+		contentPane.add(btnActualizar);
+		
+	}
 }

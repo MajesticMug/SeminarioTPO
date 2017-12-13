@@ -46,6 +46,7 @@ public class Informacion extends JFrame {
 	 * Create the frame.
 	 */
 	public Informacion() {
+		setTitle("Informaci\u00F3n de Paciente");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JPanel();
