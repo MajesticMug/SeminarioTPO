@@ -122,8 +122,8 @@ public class Turnos extends JFrame implements ActionListener {
 				List<Turno> turnos = Sistema.getInstance().recuperarTurnos();
 				DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
 				for(Turno t : turnos) {
-					System.out.println("dia recuperado"+t.getFechaTurno());
-					System.out.println("dia buscado"+dateChooser.getDate());
+					//System.out.println("dia recuperado"+t.getFechaTurno());
+					//System.out.println("dia buscado"+dateChooser.getDate());
 					//System.out.println(dateAux);
 					if (t.getFechaTurno().getDate() == dateChooser.getDate().getDate() 
 							&& t.getFechaTurno().getMonth()== dateChooser.getDate().getMonth() 
@@ -232,6 +232,23 @@ public class Turnos extends JFrame implements ActionListener {
 		});
 		btnVolver.setBounds(345, 228, 89, 23);
 		contentPane.add(btnVolver);
+		
+		JButton btnMostrarTodo = new JButton("Mostrar todo");
+		btnMostrarTodo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				contentPane.remove(list);
+				DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
+				List<Turno> turnos = Sistema.getInstance().getTurnos();
+				for(Turno t : turnos) {
+					modeloList.addElement(t);
+				}
+
+				list.setModel(modeloList);
+				contentPane.add(list);
+			}
+		});
+		btnMostrarTodo.setBounds(345, 181, 115, 23);
+		contentPane.add(btnMostrarTodo);
 	}
 
 	@Override
