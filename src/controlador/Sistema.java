@@ -36,6 +36,7 @@ public class Sistema
 		radiologos = RadiologoDAO.getInstancia().findAll();
 		turnos = TurnosDAO.getInstancia().findAll();
 		fichasOdontologicas = FichasOdontologicasDAO.getInstancia().findAll();
+		historiasClinicas = HistoriaClinicaDAO.getInstancia().findAll();
 	}	
 
 	/*
@@ -120,6 +121,7 @@ public class Sistema
 		
 	}
 	public void agregarHistoriaClinica(HistoriaClinica h){
+		HistoriaClinicaDAO.getInstancia().save(h);
 		this.historiasClinicas.add(h);
 	}
 	public void agregarPaciente(Paciente p){
@@ -235,5 +237,10 @@ public class Sistema
 	// RECUPERAR TURNOS
 	public List<Turno> recuperarTurnos(){
 		return this.turnos;
+	}
+
+	public void agregarFichaOdontologica(modelo.FichaOdontologica ficha) {
+		FichasOdontologicasDAO.getInstancia().save(ficha);
+		getFichasOdontologicas().add(ficha);		
 	}
 }

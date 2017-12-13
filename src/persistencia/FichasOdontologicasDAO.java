@@ -18,6 +18,10 @@ public class FichasOdontologicasDAO {
 		return HibernateUtil.getSessionFactory().openSession().createQuery("from FichaOdontologica").list();
 	}
 
+	public void save(FichaOdontologica ficha) {
+		HibernateUtil.guardarEntidad(ficha);		
+	}
+
 	
 
 }

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+
+import controlador.Sistema;
 import modelo.HistoriaClinica;
 import modelo.Paciente;
 import modelo.PuntosMarcados;
@@ -23,13 +25,13 @@ import utils.HibernateUtil;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class FichaOdontologica extends JFrame {
+public class AltaFichaOdontologica extends JFrame {
 	
 	
 	/**
 	 * 
 	 */
-	private static FichaOdontologica inst = null;
+	private static AltaFichaOdontologica inst = null;
 	private static final long serialVersionUID = 1332996636763672080L;
 
 	private List<Point> points = new ArrayList<Point>();
@@ -49,7 +51,18 @@ public class FichaOdontologica extends JFrame {
 			{
 				try
 				{
-					FichaOdontologica window = new FichaOdontologica(null);
+					Paciente p = Sistema.getInstance().getPacientes().get(1);
+					
+					HistoriaClinica h = p.getHistoriaClinica();
+					
+					if (h == null) {
+						h = new HistoriaClinica("", p);
+						Sistema.getInstance().agregarHistoriaClinica(h);
+					}
+					
+					p.setHistoriaClinica(h);
+					
+					AltaFichaOdontologica window = new AltaFichaOdontologica(p);
 					window.setVisible(true);
 				} catch (Exception e)
 				{
@@ -63,7 +76,7 @@ public class FichaOdontologica extends JFrame {
 	 * Create the application.
 	 * @throws IOException 
 	 */
-	public FichaOdontologica(Paciente paciente) throws IOException
+	public AltaFichaOdontologica(Paciente paciente) throws IOException
 	{
 		setTitle("Ficha Odontol\u00F3gica");
 		this.paciente = paciente;
@@ -80,9 +93,9 @@ public class FichaOdontologica extends JFrame {
 
 		background = ImageIO.read(new File("src/resources/img/FormularioDental.jpg"));
 	}
-	public static FichaOdontologica getInstance(Paciente p) throws IOException{
+	public static AltaFichaOdontologica getInstance(Paciente p) throws IOException{
 		if(inst == null){
-			inst = new FichaOdontologica(p);
+			inst = new AltaFichaOdontologica(p);
 		}
 		return inst;
 	}
@@ -121,11 +134,6 @@ public class FichaOdontologica extends JFrame {
 
 		Date fecha = new Date(new java.util.Date().getTime());
 
-		Paciente paciente = new Paciente("OSDE", 123, "Javier", "Capello", "DNI", 1000000, "Calle falsa 123",
-				123123, 'm', fecha, "PAC", "jcapello","jcapello");
-
-		HistoriaClinica historiaClinica = new HistoriaClinica("", paciente);
-
 		List<Integer> puntosX = new ArrayList<Integer>();
 		List<Integer> puntosY = new ArrayList<Integer>();
 
@@ -138,11 +146,9 @@ public class FichaOdontologica extends JFrame {
 		PuntosMarcados puntosMarcados = new PuntosMarcados(puntosX, puntosY);
 
 		modelo.FichaOdontologica ficha = new modelo.FichaOdontologica(fecha, fecha, 
-				paciente, "", historiaClinica, puntosMarcados);
+				paciente, "", paciente.getHistoriaClinica(), puntosMarcados);
 
 		HibernateUtil.guardarEntidad(puntosMarcados);
-		HibernateUtil.guardarEntidad(paciente);
-		HibernateUtil.guardarEntidad(historiaClinica);
-		HibernateUtil.guardarEntidad(ficha);
+		Sistema.getInstance().agregarFichaOdontologica(ficha);
 	}
 }
