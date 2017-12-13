@@ -10,6 +10,7 @@ import modelo.*;
 import persistencia.*;
 import utils.HibernateUtil;
 import vista.BuscarPersona;
+import vista.Radiografias;
 import vista.Turnos;
 
 public class Sistema
@@ -20,6 +21,7 @@ public class Sistema
 	private List<Turno>      turnos;
 	private List<FichaOdontologica> fichasOdontologicas;
 	private List<HistoriaClinica> historiasClinicas;
+	private List<Radiografia> radiografias;
 	
 	private static Sistema inst = null;
 	
@@ -37,6 +39,7 @@ public class Sistema
 		turnos = TurnosDAO.getInstancia().findAll();
 		fichasOdontologicas = FichasOdontologicasDAO.getInstancia().findAll();
 		historiasClinicas = HistoriaClinicaDAO.getInstancia().findAll();
+		radiografias = RadiografiaDAO.getInstancia().findAll();
 	}	
 
 	/*
@@ -81,6 +84,10 @@ public class Sistema
 
 	public List<HistoriaClinica> getHistoriasClinicas() {
 		return historiasClinicas;
+	}
+
+	public List<Radiografia> getRadiografias() {
+		return radiografias;
 	}
 
 	public void setHistoriasClinicas(List<HistoriaClinica> historiasClinicas) {

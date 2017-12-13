@@ -132,7 +132,7 @@ public class GuardarImagenTest
 			
 			rad.setImagen(ArchivoUtils.getArchivoArray(txtRuta.getText()));
 			
-			new RadiografiaDAO().guardar(rad);
+			new RadiografiaDAO().save(rad);
 			
 			PopupImagenRadiografia popup = new PopupImagenRadiografia(rad);
 			popup.setVisible(true);

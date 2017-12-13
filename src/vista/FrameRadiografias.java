@@ -3,8 +3,12 @@ package vista;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.IOException;
+import java.sql.Date;
 
+import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
@@ -12,11 +16,19 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+import excepciones.ArchivoException;
+import modelo.Radiografia;
+import persistencia.RadiografiaDAO;
+import utils.ArchivoUtils;
+
 import java.awt.Color;
 
 public class FrameRadiografias extends javax.swing.JFrame implements ActionListener {
@@ -28,6 +40,7 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 	private JLabel Administracion;
     private static FrameRadiografias inst=null;
 	private JTextField txtPaciente;
+	private JList<Radiografia> list;
     /**
 	* Auto-generated main method to display this JFrame
 	*/
@@ -43,6 +56,7 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 	
 	private FrameRadiografias() {
 		super();
+		inst = this;
 		setTitle("Radiograf\u00EDas");
 		initGUI();
 	}
@@ -69,13 +83,14 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 			contenedor.add(txtPaciente);
 			txtPaciente.setColumns(10);
 
-			JList list = new JList();
+			list = new JList<Radiografia>();
 			list.setBounds(21, 47, 229, 144);
-			DefaultListModel<String> modeloList = new DefaultListModel();
-			modeloList.addElement("/resources/img/Radiografias1.jpg");
-			modeloList.addElement("/resources/img/Radiografias2.jpg");
-			modeloList.addElement("/resources/img/Radiografias3.jpg");
-			modeloList.addElement("/resources/img/Radiografias4.jpg");
+			DefaultListModel<Radiografia> modeloList = new DefaultListModel<Radiografia>();
+			
+			for (Radiografia r : Sistema.getInstance().getRadiografias()) {
+				modeloList.addElement(r);
+			}
+			
 			list.setModel(modeloList);
 			contenedor.add(list);
 
@@ -84,7 +99,7 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 				public void actionPerformed(ActionEvent e) {
 					JFileChooser fileChooser;
 					String dire = null;
-
+					
 					/*Creamos el objeto*/
 					fileChooser=new JFileChooser();
 					/*llamamos el metodo que permite cargar la ventana*/
@@ -94,12 +109,28 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 					//Se asigna mismo nombre al txt
 					dire  = abre.getPath();
 					System.out.println(dire);
+					
+					Date fecha = new Date(new java.util.Date().getTime());
+					Radiografia rad = new Radiografia(fecha, null, null);
+					
+					try {
+						rad.setImagen(ArchivoUtils.getArchivoArray(dire));
+						RadiografiaDAO.getInstancia().save(rad);
+						((DefaultListModel<Radiografia>)list.getModel()).addElement(rad);
+					} catch (ArchivoException e1) {
+						JOptionPane.showMessageDialog(inst, "No se pudo guardar la radiografia.\n" + e1);
+					}
 				}
 			});
 			btnAceptar.setBounds(111, 228, 89, 23);
 			contenedor.add(btnAceptar);
 
 			JButton btnEliminar = new JButton("Eliminar");
+			btnEliminar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+				}
+			});
 			btnEliminar.setBounds(210, 228, 89, 23);
 			contenedor.add(btnEliminar);
 
@@ -125,8 +156,12 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 			JButton btnRefresh = new JButton("Visualizar");
 			btnRefresh.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					String selected = (String) list.getSelectedValue();
-					panelRadiografia.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource(selected)));
+					Radiografia r = list.getSelectedValue();
+					try {
+						panelRadiografia.setImagen(ImageIO.read(new ByteArrayInputStream(r.getImagen())));
+					} catch (IOException e1) {
+						JOptionPane.showMessageDialog(inst, "Error al cargar la imagen.");
+					}
 				}
 			});
 			btnRefresh.setBounds(294, 162, 104, 23);

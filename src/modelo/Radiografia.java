@@ -42,6 +42,11 @@ public class Radiografia
 		this.paciente = paciente;
 		this.radiologo = radiologo;
 	}
+	
+	@Override
+	public String toString() {
+		return getNroRadiografia() + (getPaciente() != null ? " - " +  getPaciente().getApellido() + ", " + getPaciente().getNombre() : "");
+	}
 
 	public int getNroRadiografia()
 	{
