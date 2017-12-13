@@ -85,7 +85,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 				}
 			}
 		});
-		btnInformacion.setBounds(340, 198, 105, 23);
+		btnInformacion.setBounds(218, 198, 105, 23);
 		contentPane.add(btnInformacion);
 
 		//		LOGO Centro
@@ -205,7 +205,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		//		Imagen para boton buscar
 		JPanelConFondo panelBuscar = new JPanelConFondo();
 		panelBuscar.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Buscar.jpg")));
-		panelBuscar.setBounds(241, 149, 89, 72);
+		panelBuscar.setBounds(119, 149, 89, 72);
 		contentPane.add(panelBuscar);
 		panelBuscar.setLayout(null);
 
@@ -225,7 +225,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		//		Imagen para boton Información		
 		JPanelConFondo panelInfo = new JPanelConFondo();
 		panelInfo.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Info.jpg")));
-		panelInfo.setBounds(340, 149, 105, 62);
+		panelInfo.setBounds(218, 149, 105, 62);
 		contentPane.add(panelInfo);
 		panelInfo.setLayout(null);
 	}
