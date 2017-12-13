@@ -121,7 +121,7 @@ public class Login extends JFrame {
 		JCheckBox chckbxOlvideMiContrasea = new JCheckBox("Olvide mi contrase\u00F1a");
 		chckbxOlvideMiContrasea.setBounds(70, 121, 189, 23);
 		contentPane.add(chckbxOlvideMiContrasea);
-		
+		 
 		JCheckBox chckbxRegistrarNuevoUsuario = new JCheckBox("Registrar Nuevo Usuario");
 		chckbxRegistrarNuevoUsuario.setBounds(70, 139, 189, 23);
 		contentPane.add(chckbxRegistrarNuevoUsuario);
