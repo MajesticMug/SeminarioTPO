@@ -91,9 +91,9 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnOdontograma){
 					Paciente p = controlador.Sistema.getInstance().buscarPaciente(dniPaciente);
-					FichaOdontologica o = null;
+					FrameOdontograma o = null;
 					try {
-						o = FichaOdontologica.getInstance(p);
+						o = FrameOdontograma.getInstance(p);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -227,11 +227,11 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource()==btnOdontograma){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
+//		if(e.getSource()==btnOdontograma){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
 		if(e.getSource()==btnPendientes){
 			FramePendientes p = FramePendientes.getInstance();
 			p.setVisible(true);

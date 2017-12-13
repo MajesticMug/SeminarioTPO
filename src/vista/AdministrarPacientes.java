@@ -14,13 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
+
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class AdministrarPacientes extends JFrame {
 
-	private JPanel contentPane;
+	private JDesktopPane contentPane;
 	private static AdministrarPacientes inst = null;
 	/**
 	 * Launch the application.
@@ -56,7 +58,7 @@ public class AdministrarPacientes extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		contentPane = new JDesktopPane();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
