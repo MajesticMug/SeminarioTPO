@@ -209,35 +209,35 @@ public class Turnos extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		
 
-		if(e.getSource()==btnAgregarTurno){
-			AltaTurno o = AltaTurno.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
-		if(e.getSource()==btnBuscar){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
-		if(e.getSource()==btnModificar){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
-		if(e.getSource()==btnInfo){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
-		if(e.getSource()==btnSeleccionar){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
-		if(e.getSource()==btnVolver){
-			FrameOdontograma o = FrameOdontograma.getInstance();
-			o.setVisible(true);
-			this.setVisible(false);
-		}
+//		if(e.getSource()==btnAgregarTurno){
+//			AltaTurno o = AltaTurno.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
+//		if(e.getSource()==btnBuscar){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
+//		if(e.getSource()==btnModificar){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
+//		if(e.getSource()==btnInfo){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
+//		if(e.getSource()==btnSeleccionar){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
+//		if(e.getSource()==btnVolver){
+//			FrameOdontograma o = FrameOdontograma.getInstance();
+//			o.setVisible(true);
+//			this.setVisible(false);
+//		}
 	}
 }

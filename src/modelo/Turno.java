@@ -51,7 +51,8 @@ public class Turno
 	}
 	
 	public String toString() {
-		return getNroTurno() + " - " + getPaciente().getApellido() + ", " + getPaciente().getNombre() + "- " + getFechaTurno();
+		return this.paciente.getNroDocumento()
+				+ " - " + getNroTurno() + " - " + getPaciente().getApellido() + ", " + getPaciente().getNombre() + " - " + getFechaTurno();
 	}
 
 	public int getNroTurno()
