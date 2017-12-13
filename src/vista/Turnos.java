@@ -40,6 +40,7 @@ public class Turnos extends JFrame implements ActionListener {
 	private JButton btnSeleccionar;
 	private JButton btnVolver;
     private static Turnos inst=null;
+    private JList<Turno> list;
 
 	/**
 	 * Launch the application.
@@ -67,6 +68,8 @@ public class Turnos extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Turnos() {
+		inst = this;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
 		contentPane = new JDesktopPane();
@@ -98,28 +101,17 @@ public class Turnos extends JFrame implements ActionListener {
 
 		//		--------------------------------------------
 //		FORMATO: 31370003 - Juan Hernandez - 09/12/2012 - 12hs
-		JList list = new JList();
+		list = new JList<Turno>();
 		list.setBounds(20, 42, 280, 128);
-		DefaultListModel<String> modeloList = new DefaultListModel();
-//		List<Turno> listaTurno = Sistema.getInstance().getTurnos();
-//		int i = 0;
-//		while (i < listaTurno.size()){
-//			if (dateChooser.getDate() == listaTurno.get(i).getFechaTurno()){
-//			modeloList.addElement(listaTurno.get(i).getPaciente().getNroDocumento()
-//								+ " - "
-//					            + listaTurno.get(i).getPaciente().getNombre() 
-//					            + ' ' + listaTurno.get(i).getPaciente().getApellido()
-//					            + " - " + listaTurno.get(i).getFechaTurno()
-//					            + " - " + listaTurno.get(i).getHoraTurno());
-//			}
-//		}
-		//modeloList.addElement("Turno 1");
-		//modeloList.addElement("Turno 2");
-		//modeloList.addElement("Turno 3");
+		
+		DefaultListModel<Turno> modeloList = new DefaultListModel<Turno>();
+		
 		List<Turno> turnos = Sistema.getInstance().getTurnos();
-		for(Turno t:turnos) {
-			modeloList.addElement(t.toString());
+		
+		for(Turno t : turnos) {
+			modeloList.addElement(t);
 		}
+		
 		list.setModel(modeloList);
 		contentPane.add(list);
 
@@ -141,6 +133,8 @@ public class Turnos extends JFrame implements ActionListener {
 					AltaTurno o = AltaTurno.getInstance();
 					o.setVisible(true);
 					inst.setVisible(false);
+					
+					o.setVistaTurnos(inst);
 				}
 			}
 		});
@@ -156,10 +150,16 @@ public class Turnos extends JFrame implements ActionListener {
 		btnModificar = new JButton("Eliminar");
 		btnModificar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String selected = (String) list.getSelectedValue();
+				Turno t = list.getSelectedValue();
 				
-				Turno turno = Sistema.getInstance().buscarTurnos(selected);
-				Sistema.getInstance().eliminarTurno(turno);
+				Sistema.getInstance().eliminarTurno(t);
+				
+				DefaultListModel model = (DefaultListModel) list.getModel();
+				int selectedIndex = list.getSelectedIndex();
+				if (selectedIndex != -1) {
+				    model.remove(selectedIndex);
+				}
+				
 			}
 		});
 		btnModificar.setBounds(345, 133, 89, 23);
@@ -239,5 +239,11 @@ public class Turnos extends JFrame implements ActionListener {
 //			o.setVisible(true);
 //			this.setVisible(false);
 //		}
+	}
+
+	public void agregarTurnoCreado(Turno t) {
+		DefaultListModel<Turno> model = (DefaultListModel<Turno>)list.getModel();
+		
+		model.addElement(t);
 	}
 }

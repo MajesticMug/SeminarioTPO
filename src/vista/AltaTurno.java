@@ -38,6 +38,7 @@ public class AltaTurno extends JFrame implements ActionListener
 	private JDateChooser dateChooser;
 	private JComboBox<Integer> hora;
 	private JComboBox<Integer> minutos;
+	private Turnos vistaTurnos;
 
 	/**
 	 * Launch the application.
@@ -198,6 +199,15 @@ public class AltaTurno extends JFrame implements ActionListener
 					JOptionPane.showMessageDialog(inst, "Error: el profesional seleccionado no es ni Odontologo ni Radiologo.");
 				
 				Sistema.getInstance().agregarTurno(turno);
+				
+				JOptionPane.showMessageDialog(inst, "Turno creado.");
+				
+				if (vistaTurnos != null) {
+					vistaTurnos.agregarTurnoCreado(turno);					
+				}
+				else {
+					System.out.println("Error: no se puede actualizar la lista de turnos desde el alta turno.");
+				}
 			}
 		});
 	}
@@ -206,5 +216,9 @@ public class AltaTurno extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void setVistaTurnos(Turnos vistaTurnos) {
+		this.vistaTurnos = vistaTurnos;		
 	}
 }

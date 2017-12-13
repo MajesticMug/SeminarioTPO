@@ -18,6 +18,8 @@ public class Sistema
 	private List<Odontologo> odontologos;
 	private List<Radiologo>  radiologos;
 	private List<Turno>      turnos;
+	private List<FichaOdontologica> fichasOdontologicas;
+	
 	private static Sistema inst = null;
 	
 	public static Sistema getInstance(){
@@ -58,6 +60,10 @@ public class Sistema
 
 	public List<Radiologo> getRadiologos() {
 		return radiologos;
+	}
+
+	public List<FichaOdontologica> getFichasOdontologicas() {
+		return fichasOdontologicas;
 	}
 
 	public List<Turno> getTurnos() {
@@ -183,6 +189,7 @@ public class Sistema
 		while (index < this.turnos.size()){
 			if (   this.turnos.get(index).getFechaTurno() == turno.getFechaTurno()
 			    && this.turnos.get(index).getHoraTurno()  == turno.getHoraTurno()){
+				TurnosDAO.getInstancia().remove(turno);
 				this.turnos.remove(index);
 			}
 			index++;
