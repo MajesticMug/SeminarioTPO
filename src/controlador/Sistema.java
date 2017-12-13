@@ -84,11 +84,14 @@ public class Sistema
 	public Turno buscarTurnos (String turno){
 //		FORMATO: turno = "31370003 - Juan Hernandez - 09/12/2012 - 12hs";
 		String parts[] = turno.split(" - ");
-		
+		int dniParts = Integer.parseInt(parts[0]);
 		int i = 0;
 		while (i<this.turnos.size()){
-			String dni = Integer.toString(this.turnos.get(i).getPaciente().getNroDocumento());
-			if ( dni == parts[0]){
+//			String dni = Integer.toString(this.turnos.get(i).getPaciente().getNroDocumento());
+			
+			int dni = this.turnos.get(i).getPaciente().getNroDocumento();
+//			if ( dni == parts[0]){
+			if ( dni == dniParts){
 				return this.turnos.get(i);
 			}
 			i++;
