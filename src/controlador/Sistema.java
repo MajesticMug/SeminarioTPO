@@ -35,6 +35,7 @@ public class Sistema
 		odontologos = OdontologoDAO.getInstancia().findAll();
 		radiologos = RadiologoDAO.getInstancia().findAll();
 		turnos = TurnosDAO.getInstancia().findAll();
+		fichasOdontologicas = FichasOdontologicasDAO.getInstancia().findAll();
 	}	
 
 	/*
