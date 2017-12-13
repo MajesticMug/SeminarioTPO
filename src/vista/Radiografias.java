@@ -7,6 +7,10 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+import modelo.Paciente;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JList;
@@ -39,9 +43,9 @@ public class Radiografias extends JFrame {
 		});
 	}
 
-	public static Radiografias getInstance(){
+	public static Radiografias getInstance(int dniPaciente){
 		if(inst == null){
-			inst = new Radiografias();
+			inst = new Radiografias(dniPaciente);
 		}
 		return inst;
 	}
@@ -49,7 +53,8 @@ public class Radiografias extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Radiografias() {
+	public Radiografias(int dniPaciente) {
+		Paciente pac = Sistema.getInstance().buscarPaciente(dniPaciente);
 		setTitle("Radiograf\u00EDas");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
@@ -64,7 +69,8 @@ public class Radiografias extends JFrame {
 
 		txtPaciente = new JTextField();
 		txtPaciente.setEditable(false);
-		txtPaciente.setText("Ernesto Bonacua");
+		//txtPaciente.setText("Ernesto Bonacua");
+		txtPaciente.setText(pac.toString());
 		txtPaciente.setBounds(80, 8, 229, 20);
 		contentPane.add(txtPaciente);
 		txtPaciente.setColumns(10);
@@ -112,7 +118,7 @@ public class Radiografias extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					MenuPrincipal mp = MenuPrincipal.getInstance();
+					HistoriaClinica mp = HistoriaClinica.getInstance(dniPaciente);
 					mp.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -136,4 +142,8 @@ public class Radiografias extends JFrame {
 		});
 		btnRefresh.setBounds(294, 162, 104, 23);
 		contentPane.add(btnRefresh);
+	}
+
+	public Radiografias() {
+		// TODO Auto-generated constructor stub
 	}}

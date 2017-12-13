@@ -254,4 +254,9 @@ public class Sistema
 	public List<HistoriaClinica> recuperarHistoriasClinicas(){
 		return this.historiasClinicas;
 	}
+	
+	public void borrarHistoriaClinica(HistoriaClinica hc) {
+		historiasClinicas.remove(hc);
+		//HistoriaClinicaDAO.getInstancia().remove(hc);
+	}
 }

@@ -27,6 +27,8 @@ public class AltaHistoriaClinica extends JFrame {
 
 	private JPanel contentPane;
 	private static AltaHistoriaClinica inst = null;
+	private Paciente paciente;
+	private BuscarHistoriaClinica ventanaBuscar;
 
 	/**
 	 * Launch the application.
@@ -66,6 +68,8 @@ public class AltaHistoriaClinica extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
 					BuscarHistoriaClinica mp = BuscarHistoriaClinica.getInstance();
+					mp.actualizarHistorias();
+					
 					mp.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -85,7 +89,7 @@ public class AltaHistoriaClinica extends JFrame {
 		for (Paciente p : Sistema.getInstance().recuperarPacientes()) {
 			comboBoxPaciente.addItem(p);
 		}
-		Paciente paciente = (Paciente) comboBoxPaciente.getSelectedItem();
+		
 		comboBoxPaciente.setBounds(144, 36, 183, 23);
 		contentPane.add(comboBoxPaciente);
 		
@@ -133,7 +137,8 @@ public class AltaHistoriaClinica extends JFrame {
 				List<ConsentimientoTratamiento> consentimientosTratamiento = null;
 				List<PlanTratamiento> planesTratamiento = null;
 				List<FichaOdontologica> fichasOdontologicas = null;
-				
+				paciente = (Paciente) comboBoxPaciente.getSelectedItem();
+				System.out.println(paciente.toString());
 				modelo.HistoriaClinica hist = new modelo.HistoriaClinica(observaciones, paciente, radiografias, consentimientosTratamiento, planesTratamiento, fichasOdontologicas);
 				
 				if(e.getSource()==btnAceptar){
@@ -144,5 +149,9 @@ public class AltaHistoriaClinica extends JFrame {
 		});
 		btnAceptar.setBounds(304, 232, 89, 23);
 		contentPane.add(btnAceptar);
+	}
+	public void setVentanaBuscar(BuscarHistoriaClinica ventanaBuscar) {
+		this.ventanaBuscar = ventanaBuscar;
+		
 	}
 }

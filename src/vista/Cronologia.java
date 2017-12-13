@@ -69,8 +69,8 @@ public class Cronologia extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					HistoriaClinica mp = HistoriaClinica.getInstance();
-					mp.setVisible(true);
+					//HistoriaClinica mp = HistoriaClinica.getInstance(0);
+					//mp.setVisible(true);
 					inst.setVisible(false);
 				}
 				

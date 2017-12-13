@@ -25,6 +25,7 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.Sistema;
 import excepciones.ArchivoException;
+import modelo.Paciente;
 import modelo.Radiografia;
 import persistencia.RadiografiaDAO;
 import utils.ArchivoUtils;
@@ -41,22 +42,24 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
     private static FrameRadiografias inst=null;
 	private JTextField txtPaciente;
 	private JList<Radiografia> list;
+	private Paciente paciente;
     /**
 	* Auto-generated main method to display this JFrame
 	*/
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				FrameRadiografias inst = new FrameRadiografias();
+				FrameRadiografias inst = new FrameRadiografias(null);
 				inst.setLocationRelativeTo(null);
 				inst.setVisible(true);
 			}
 		});
 	}
 	
-	private FrameRadiografias() {
+	FrameRadiografias(Paciente paciente) {
 		super();
 		inst = this;
+		this.paciente = paciente;
 		setTitle("Radiograf\u00EDas");
 		initGUI();
 	}
@@ -111,7 +114,7 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 					System.out.println(dire);
 					
 					Date fecha = new Date(new java.util.Date().getTime());
-					Radiografia rad = new Radiografia(fecha, null, null);
+					Radiografia rad = new Radiografia(fecha, paciente, null);
 					
 					try {
 						rad.setImagen(ArchivoUtils.getArchivoArray(dire));
@@ -138,8 +141,8 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 			btnVolver.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(e.getSource()==btnVolver){
-						MenuPrincipal mp = MenuPrincipal.getInstance();
-						mp.setVisible(true);
+						HistoriaClinica hc = HistoriaClinica.getInstance(paciente.getNroDocumento());
+						hc.setVisible(true);
 						inst.setVisible(false);
 					}
 				}
@@ -175,7 +178,7 @@ public class FrameRadiografias extends javax.swing.JFrame implements ActionListe
 	}
 	public static FrameRadiografias getInstance(){
 		if(inst == null){
-			inst = new FrameRadiografias();
+			inst = new FrameRadiografias(null);
 		}
 		return inst;
 	}

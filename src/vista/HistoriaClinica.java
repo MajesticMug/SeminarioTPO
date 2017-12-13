@@ -50,9 +50,9 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	}
 
 
-	public static HistoriaClinica getInstance(){
+	public static HistoriaClinica getInstance(int dniPaciente){
 		if(inst == null){
-			inst = new HistoriaClinica();
+			inst = new HistoriaClinica(dniPaciente);
 		}
 		return inst;
 	}
@@ -60,7 +60,8 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public HistoriaClinica() {
+	public HistoriaClinica(int dniPaciente) {
+		Paciente pac = Sistema.getInstance().buscarPaciente(dniPaciente);
 		setTitle("Historia Cl\u00EDnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
@@ -75,7 +76,8 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		contentPane.add(lblHistoriaClnicaDel);
 
 		txtPaciente = new JTextField();
-		txtPaciente.setText("Ernesto Bonacua");
+		//txtPaciente.setText("Ernesto Bonacua");
+		txtPaciente.setText(pac.toString());
 		txtPaciente.setEditable(false);
 		txtPaciente.setBounds(185, 8, 183, 20);
 		contentPane.add(txtPaciente);
@@ -152,7 +154,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 
 				if(e.getSource()==btnFotos){
-					Fotos f = Fotos.getInstance();
+					Fotos f = Fotos.getInstance(pac.getNroDocumento());
 					f.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -184,7 +186,7 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		btnRadiografias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnRadiografias){
-					Radiografias r = Radiografias.getInstance();
+					FrameRadiografias r = new FrameRadiografias(pac);
 					r.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -224,6 +226,13 @@ public class HistoriaClinica extends JFrame implements ActionListener{
 		btnVolver.setBounds(327, 239, 89, 23);
 		contentPane.add(btnVolver);
 	}
+
+
+
+	public HistoriaClinica() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

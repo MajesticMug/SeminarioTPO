@@ -181,6 +181,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		panelHC.add(btnHistoriasClinicas);
 		btnHistoriasClinicas.setToolTipText("Historias Cl\u00EDnicas");
 
+/*
 		//      Imagen para boton Radiografías
 		JPanelConFondo panelRadiog = new JPanelConFondo();
 		panelRadiog.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Radiografias.jpg")));
@@ -200,7 +201,7 @@ public class MenuPrincipal extends JFrame implements ActionListener{
 		});
 		btnRadiografias.setBounds(0, 50, 107, 23);
 		panelRadiog.add(btnRadiografias);
-
+*/
 		//		Imagen para boton buscar
 		JPanelConFondo panelBuscar = new JPanelConFondo();
 		panelBuscar.setImagen(Toolkit.getDefaultToolkit().getImage(MenuPrincipal.class.getResource("/resources/img/Buscar.jpg")));

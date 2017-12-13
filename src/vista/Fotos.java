@@ -7,6 +7,10 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Sistema;
+import modelo.Paciente;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.DefaultListModel;
@@ -39,9 +43,9 @@ public class Fotos extends JFrame {
 		});
 	}
 
-	public static Fotos getInstance(){
+	public static Fotos getInstance(int dniPaciente){
 		if(inst == null){
-			inst = new Fotos();
+			inst = new Fotos(dniPaciente);
 		}
 		return inst;
 	}
@@ -49,7 +53,8 @@ public class Fotos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Fotos() {
+	public Fotos(int dniPaciente) {
+		Paciente pac = Sistema.getInstance().buscarPaciente(dniPaciente);
 		setTitle("Fotos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 518, 304);
@@ -65,7 +70,8 @@ public class Fotos extends JFrame {
 		contentPane.add(lblFotosPaciente);
 		
 		txtPaciente = new JTextField();
-		txtPaciente.setText("Ernesto Bonacua");
+		//txtPaciente.setText("Ernesto Bonacua");
+		txtPaciente.setText(pac.toString());
 		txtPaciente.setEditable(false);
 		txtPaciente.setBounds(134, 8, 200, 20);
 		contentPane.add(txtPaciente);
@@ -81,7 +87,7 @@ public class Fotos extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					HistoriaClinica t = HistoriaClinica.getInstance();
+					HistoriaClinica t = HistoriaClinica.getInstance(pac.getNroDocumento());
 					t.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -131,5 +137,9 @@ public class Fotos extends JFrame {
 		btnActualizar.setBounds(355, 174, 100, 23);
 		contentPane.add(btnActualizar);
 		
+	}
+
+	public Fotos() {
+		// TODO Auto-generated constructor stub
 	}
 }

@@ -17,11 +17,13 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import modelo.HistoriaClinica;
 
 public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private static BuscarHistoriaClinica inst = null;
+	private JList<HistoriaClinica> list;
 	/**
 	 * Launch the application.
 	 */
@@ -62,7 +64,7 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		lblHistoriasClnicas.setBounds(10, 11, 173, 14);
 		contentPane.add(lblHistoriasClnicas);
 		
-		JList<modelo.HistoriaClinica> list = new JList<modelo.HistoriaClinica>();
+		list = new JList<HistoriaClinica>();
 		list.setBounds(20, 36, 297, 167);
 		/*
 		DefaultListModel<String> modeloList = new DefaultListModel();
@@ -85,7 +87,8 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				
 				if(e.getSource()==btnSeleccionar){
-					HistoriaClinica t = HistoriaClinica.getInstance();
+					int dniPaciente = list.getSelectedValue().getPaciente().getNroDocumento();
+					vista.HistoriaClinica t = vista.HistoriaClinica.getInstance(dniPaciente);
 					t.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -114,6 +117,9 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnCrear){
 					AltaHistoriaClinica mp = AltaHistoriaClinica.getInstance();
+					
+					mp.setVentanaBuscar(inst);
+					
 					mp.setVisible(true);
 					inst.setVisible(false);
 				}
@@ -124,6 +130,23 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 		
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.setBounds(356, 88, 89, 23);
+		
+		btnEliminar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				modelo.HistoriaClinica hc = list.getSelectedValue();
+				Sistema.getInstance().borrarHistoriaClinica(hc);
+				
+				DefaultListModel<modelo.HistoriaClinica> model = (DefaultListModel<modelo.HistoriaClinica>)list.getModel();
+				
+				model.removeElement(hc);
+				
+				
+				
+			}
+		});
 		contentPane.add(btnEliminar);
 	}
 
@@ -131,5 +154,15 @@ public class BuscarHistoriaClinica extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	public void actualizarHistorias() {
+		DefaultListModel<HistoriaClinica> model = (DefaultListModel<HistoriaClinica>) list.getModel();
+		model.removeAllElements();
+		
+		for (HistoriaClinica hc : Sistema.getInstance().getHistoriasClinicas()) {
+			model.addElement(hc);
+		}
 	}
 }

@@ -138,7 +138,7 @@ public class FrameOdontograma extends javax.swing.JFrame implements ActionListen
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnVolver){
-					vista.HistoriaClinica o = vista.HistoriaClinica.getInstance();
+					vista.HistoriaClinica o = vista.HistoriaClinica.getInstance(paciente.getNroDocumento());
 					o.setVisible(true);
 					inst.setVisible(false);
 				}	
