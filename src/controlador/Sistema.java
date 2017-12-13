@@ -207,4 +207,9 @@ public class Sistema
 	public List<Radiologo> recuperarRadiologos(){
 		return this.radiologos;
 	}
+	
+	// RECUPERAR TURNOS
+	public List<Turno> recuperarTurnos(){
+		return this.turnos;
+	}
 }

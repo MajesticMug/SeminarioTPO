@@ -49,6 +49,10 @@ public class Turno
 		this.odontologo = odontologo;
 		this.radiologo = radiologo;
 	}
+	
+	public String toString() {
+		return getNroTurno() + " - " + getPaciente().getApellido() + ", " + getPaciente().getNombre() + "- " + getFechaTurno();
+	}
 
 	public int getNroTurno()
 	{
